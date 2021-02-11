@@ -1,0 +1,1433 @@
+{
+  "compatibilityLevel": 1200,
+  "name": "SemanticModel",
+  "model": {
+    "relationships": [
+      {
+        "name": "0785f253-36ee-4eff-b15b-c0b0ddb293e2",
+        "fromColumn": "CTRY_CD_SITE_ID",
+        "toTable": "D Country",
+        "toColumn": "CTRY_CD_SITE_ID",
+        "fromTable": "F Country Rating"
+      },
+      {
+        "relyOnReferentialIntegrity": true,
+        "name": "8e7f2c02-75fe-40b7-a289-f2851a712f66",
+        "fromColumn": "Rating Approved Date",
+        "toTable": "D Time Rating",
+        "toColumn": "Calendar Date",
+        "fromTable": "F Country Rating"
+      },
+      {
+        "relyOnReferentialIntegrity": true,
+        "name": "4a0dce0a-c748-46c9-93b4-eaa1b8141503",
+        "fromColumn": "Business Date",
+        "toTable": "D Time",
+        "toColumn": "Calendar Date",
+        "fromTable": "F Country Rating"
+      }
+    ],
+    "tables": [
+      {
+        "partitions": [{
+          "name": "D_TIME",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_TIME\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_TIME\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "REP_MTH_END_IND",
+            "sourceColumn": "REP_MTH_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "MTH_YR",
+            "sourceColumn": "MTH_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "MTH_END_IND",
+            "sourceColumn": "MTH_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR",
+            "sourceColumn": "QTR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR_YR",
+            "sourceColumn": "QTR_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "FY_STRT_MTH",
+            "sourceColumn": "FY_STRT_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "FY_END_MTH",
+            "sourceColumn": "FY_END_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "YR_PER",
+            "sourceColumn": "YR_PER"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR_END_IND",
+            "sourceColumn": "QTR_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "YR_END_IND",
+            "sourceColumn": "YR_END_IND"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_QTR_END_DT",
+            "sourceColumn": "PREV_YR_QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_YE_DT",
+            "sourceColumn": "PREV_YR_YE_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_ME_DT",
+            "sourceColumn": "PREV_ME_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_QTR_END_DT",
+            "sourceColumn": "PREV_QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_ME_DT",
+            "sourceColumn": "PREV_YR_ME_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source ID",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SRC_ID"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Calendar ID",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_CAL_ID"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Calendar Date",
+            "isKey": true,
+            "displayFolder": "Attributes",
+            "sourceColumn": "CAL_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Calendar Name",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_CAL_NM"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Month",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_MTH"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Week",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_WK"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Year Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Year Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Year End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YE_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Quarter Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Quarter Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Quarter End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Quarters in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Month Number",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "MTH_NUM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Short Name of Month",
+            "sortByColumn": "Month Number",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SHRT_NM_OF_MTH"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Month Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Month End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ME_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Months in Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_IN_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Months in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ISO Week Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_WK_NUM"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ISO Week Year Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_WK_YR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Week Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Week End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Weeks in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_NUM"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Name of Day",
+            "displayFolder": "Attributes",
+            "sourceColumn": "NM_OF_DAY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Short Name of Day",
+            "sortByColumn": "Day of Calendar Week",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SHRT_NM_OF_DAY"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Month",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_MTH"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Week Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_WK_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Working Day Flag",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WRK_DAY_FL"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Year",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YR"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Fiscal Year Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Fiscal Year End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YE_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Fiscal Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_FISC_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Period Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_PER_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Period",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_PER"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Period Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Period End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Period",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_PER"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Periods in Fiscal Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PERS_IN_FISC_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Special Periods in Financial Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SPL_PERS_IN_FYR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Annualizing Factor",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ANL_FACT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_YTD",
+            "sourceColumn": "ANL_FACT_YTD"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_QTD",
+            "sourceColumn": "ANL_FACT_QTD"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_MTH",
+            "sourceColumn": "ANL_FACT_MTH"
+          }
+        ],
+        "dataCategory": "Time",
+        "name": "D Time Rating",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_TIME\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_TIME\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D_TIME"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "D_CTRY",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_CTRY\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_CTRY\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Country Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CTRY_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Country Name",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CTRY_NM"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Standard Country Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "STD_CTRY_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Standard Country Name",
+            "displayFolder": "Attributes",
+            "sourceColumn": "STD_CTRY_NM"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ISO2 Country Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO2_CTRY_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ISO Country Name",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_CTRY_NM"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ISO3 Country Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO3_CTRY_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ISO Country Number",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_CTRY_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "Record Deleted Flag",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "Control ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "REGN",
+            "sourceColumn": "REGN"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CONS_REGN",
+            "sourceColumn": "CONS_REGN"
+          },
+          {
+            "expression": "'D Country'[Country Code] & \"~\" & 'D Country'[Site ID]",
+            "name": "CTRY_CD_SITE_ID",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "D Country",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_CTRY\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_CTRY\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D_CTRY"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "D_TIME",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_TIME\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_TIME\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Reporting Month End Indicator",
+            "displayFolder": "Attributes",
+            "sourceColumn": "REP_MTH_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "MTH_YR",
+            "sourceColumn": "MTH_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "MTH_END_IND",
+            "sourceColumn": "MTH_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR",
+            "sourceColumn": "QTR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR_YR",
+            "sourceColumn": "QTR_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "FY_STRT_MTH",
+            "sourceColumn": "FY_STRT_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "FY_END_MTH",
+            "sourceColumn": "FY_END_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "YR_PER",
+            "sourceColumn": "YR_PER"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR_END_IND",
+            "sourceColumn": "QTR_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "YR_END_IND",
+            "sourceColumn": "YR_END_IND"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_QTR_END_DT",
+            "sourceColumn": "PREV_YR_QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_YE_DT",
+            "sourceColumn": "PREV_YR_YE_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_ME_DT",
+            "sourceColumn": "PREV_ME_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_QTR_END_DT",
+            "sourceColumn": "PREV_QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_ME_DT",
+            "sourceColumn": "PREV_YR_ME_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source ID",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SRC_ID"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Calendar ID",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_CAL_ID"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Calendar Date",
+            "isKey": true,
+            "displayFolder": "Attributes",
+            "sourceColumn": "CAL_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Calendar Name",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_CAL_NM"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Month",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_MTH"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Week",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_WK"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Year Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Year Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Year End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YE_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Quarter Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Quarter Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Quarter End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Quarters in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Month Number",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "MTH_NUM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Short Name of Month",
+            "sortByColumn": "Month Number",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SHRT_NM_OF_MTH"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Month Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Month End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ME_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Months in Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_IN_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Months in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ISO Week Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_WK_NUM"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ISO Week Year Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_WK_YR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Week Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Week End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Weeks in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_NUM"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Name of Day",
+            "displayFolder": "Attributes",
+            "sourceColumn": "NM_OF_DAY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Short Name of Day",
+            "sortByColumn": "Day of Calendar Week",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SHRT_NM_OF_DAY"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Month",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_MTH"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Week Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_WK_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Working Day Flag",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WRK_DAY_FL"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Year",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YR"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Fiscal Year Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Fiscal Year End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YE_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Fiscal Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_FISC_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Period Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_PER_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Period",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_PER"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Period Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Period End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Period",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_PER"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Periods in Fiscal Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PERS_IN_FISC_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Special Periods in Financial Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SPL_PERS_IN_FYR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Annualizing Factor",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ANL_FACT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_YTD",
+            "sourceColumn": "ANL_FACT_YTD"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_QTD",
+            "sourceColumn": "ANL_FACT_QTD"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_MTH",
+            "sourceColumn": "ANL_FACT_MTH"
+          }
+        ],
+        "dataCategory": "Time",
+        "name": "D Time",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_TIME\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_TIME\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D_TIME"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "F_CTRY_RATG",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_RSK_V\".\"F_CTRY_RATG\".* FROM \"U01_EDW_SEM_RSK_V\".\"F_CTRY_RATG\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "BUSN_DT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Country Code",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTRY_CD",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Country of Risk Rating Category",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CTRY_OF_RISK_RATG_CAT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Country of Risk Rating",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CTRY_OF_RISK_RATG"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Rating Agency Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "RATG_AGNCY_CD"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Rating Approved Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RATG_APPR_DT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "expression": "'F Country Rating'[Country Code] & \"~\" & 'F Country Rating'[Site ID]",
+            "name": "CTRY_CD_SITE_ID",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "F Country Rating",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_RSK_V\".\"F_CTRY_RATG\".* FROM \"U01_EDW_SEM_RSK_V\".\"F_CTRY_RATG\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "F_CTRY_RATG"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      }
+    ],
+    "defaultMode": "directQuery",
+    "culture": "en-US",
+    "roles": [{
+      "modelPermission": "read",
+      "members": [
+        {"memberName": "NTSGPDOM\\uCTX_EDA_PBI_UAT"},
+        {"memberName": "NTSGPDOM\\vendc8"},
+        {"memberName": "NTSGPDOM\\veneza"},
+        {"memberName": "NTSGPDOM\\tmpob2"},
+        {"memberName": "NTSGPDOM\\uncsav"},
+        {"memberName": "NTSGPDOM\\uncglt"},
+        {"memberName": "NTSGPDOM\\vendm8"},
+        {"memberName": "NTSGPDOM\\vendx1"},
+        {"memberName": "NTSGPDOM\\venris"}
+      ],
+      "name": "Reader"
+    }],
+    "annotations": [{
+      "name": "ClientCompatibilityLevel",
+      "value": "400"
+    }],
+    "dataSources": [{
+      "connectionString": "Data Encryption=True;Data Source=tdp;Persist Security Info=False;Session Character Set=UTF8;Session Mode=DEFAULT;Connection Pooling Timeout=30;Max Pool Size=1000;Integrated Security=True;Recovery=OFF;Command Timeout=120;Connection Timeout=120;",
+      "provider": "Teradata.Client.Provider",
+      "name": "T3 Source",
+      "impersonationMode": "impersonateCurrentUser",
+      "annotations": [{
+        "name": "ConnectionEditUISource",
+        "value": "Teradata"
+      }],
+      "maxConnections": 1000
+    }]
+  }
+}

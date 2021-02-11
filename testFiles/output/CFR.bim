@@ -1,0 +1,4120 @@
+{
+  "compatibilityLevel": 1200,
+  "name": "SemanticModel",
+  "model": {
+    "relationships": [
+      {
+        "name": "2ed0db46-f1c1-4a76-a252-fa9d4cbda494",
+        "fromColumn": "CFR Account No",
+        "toTable": "D CFR Account",
+        "toColumn": "CFR Account",
+        "fromTable": "F CFR Adjustment"
+      },
+      {
+        "relyOnReferentialIntegrity": true,
+        "name": "62eeb75f-fda9-4dfb-89db-72cd8b48f456",
+        "fromColumn": "Business Date",
+        "toTable": "D Time",
+        "toColumn": "Calendar Date",
+        "fromTable": "F CFR Adjustment"
+      },
+      {
+        "name": "1223ffba-da15-4f0f-9396-bc7fc9be658d",
+        "fromColumn": "CFR Account",
+        "toTable": "D CFR Account",
+        "toColumn": "CFR Account",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "63b0d79c-db16-4fc6-aa9a-dcea8ac66534",
+        "fromColumn": "Scenario Code",
+        "toTable": "D Scenario Type",
+        "toColumn": "Scenario Code",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "relyOnReferentialIntegrity": true,
+        "name": "c1bf5b59-5655-459c-ae4a-464dbc8a0288",
+        "fromColumn": "Business Date",
+        "toTable": "D Time",
+        "toColumn": "Calendar Date",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "f67bc2d9-d44d-45b2-bfe3-efec863e6b16",
+        "fromColumn": "BUSN_DT_CUSTM1_C",
+        "toTable": "X H CFR Industry Dated",
+        "toColumn": "BUSN_DT_CUSTM1_C",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "d3422cfa-c3f6-4c03-8107-12e98493f0f0",
+        "fromColumn": "Custom1 C",
+        "toTable": "H CFR Industry",
+        "toColumn": "Custom1 C",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "110373e9-3946-4c55-9703-2e3c1459f281",
+        "fromColumn": "BUSN_DT_ENT",
+        "toTable": "X H Entity Legal Dated",
+        "toColumn": "BUSN_DT_ENT",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "ab077ee8-9f41-492d-af94-349593fc3a0e",
+        "fromColumn": "Entity",
+        "toTable": "H Entity Legal",
+        "toColumn": "Entity",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "fea408aa-1e2e-4799-8905-8dc6d248fedc",
+        "fromColumn": "BUSN_DT_ENT",
+        "toTable": "X H Entity Territory Dated",
+        "toColumn": "BUSN_DT_ENT",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "e5be54bc-a2ca-4232-951f-953c9df5dac0",
+        "fromColumn": "Entity",
+        "toTable": "H Entity Territory",
+        "toColumn": "Entity",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "8594b846-6052-4b58-b32c-0beda5821bda",
+        "fromColumn": "BUSN_DT_CUSTM1_C",
+        "toTable": "X H FRS39 Dated",
+        "toColumn": "BUSN_DT_CUSTM1_C",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "e791839c-7d15-4063-9836-241a57501a50",
+        "fromColumn": "Custom1 C",
+        "toTable": "H FRS39",
+        "toColumn": "Custom1 C",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "28cc0663-f361-426d-abd2-6cc5a1386766",
+        "fromColumn": "BUSN_DT_ICP",
+        "toTable": "X H ICP Dated",
+        "toColumn": "BUSN_DT_ICP",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "f393c981-c480-4ba1-95c5-d7314d9e1485",
+        "fromColumn": "ICP",
+        "toTable": "H ICP",
+        "toColumn": "ICP",
+        "fromTable": "F CFR Balance"
+      },
+      {
+        "name": "746b69a9-590c-42f1-85a5-9d102c2a6109",
+        "fromColumn": "CFR Account",
+        "toTable": "D CFR Account",
+        "toColumn": "CFR Account",
+        "fromTable": "F CFR Elimination Journal"
+      },
+      {
+        "relyOnReferentialIntegrity": true,
+        "name": "34bbfa79-9697-4f02-abfa-f2eea3d12d1f",
+        "fromColumn": "Business Date",
+        "toTable": "D Time",
+        "toColumn": "Calendar Date",
+        "fromTable": "F CFR Elimination Journal"
+      }
+    ],
+    "tables": [
+      {
+        "partitions": [{
+          "name": "D_CFR_ACCOUNT",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_CFR_V\".\"D_CFR_ACCOUNT\".* FROM \"U01_EDW_SEM_CFR_V\".\"D_CFR_ACCOUNT\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Country Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CTRY_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CFR_ACCT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CFR_AC_DECS"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account Type",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CFR_AC_TYPE"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Reporting Month",
+            "displayFolder": "Attributes",
+            "sourceColumn": "RPTG_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "D CFR Account",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_CFR_V\".\"D_CFR_ACCOUNT\".* FROM \"U01_EDW_SEM_CFR_V\".\"D_CFR_ACCOUNT\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D_CFR_ACCOUNT"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "D_SCNRO_TYPE",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_SCNRO_TYPE\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_SCNRO_TYPE\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Scenario Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SCNRO_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Scenario Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SCNRO_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "D Scenario Type",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_SCNRO_TYPE\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_SCNRO_TYPE\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D_SCNRO_TYPE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "D_TIME",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_TIME\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_TIME\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Reporting Month End Indicator",
+            "displayFolder": "Attributes",
+            "sourceColumn": "REP_MTH_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "MTH_YR",
+            "sourceColumn": "MTH_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "MTH_END_IND",
+            "sourceColumn": "MTH_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR",
+            "sourceColumn": "QTR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR_YR",
+            "sourceColumn": "QTR_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "FY_STRT_MTH",
+            "sourceColumn": "FY_STRT_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "FY_END_MTH",
+            "sourceColumn": "FY_END_MTH"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "YR_PER",
+            "sourceColumn": "YR_PER"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "QTR_END_IND",
+            "sourceColumn": "QTR_END_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "YR_END_IND",
+            "sourceColumn": "YR_END_IND"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_QTR_END_DT",
+            "sourceColumn": "PREV_YR_QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_YE_DT",
+            "sourceColumn": "PREV_YR_YE_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_ME_DT",
+            "sourceColumn": "PREV_ME_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_QTR_END_DT",
+            "sourceColumn": "PREV_QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Date",
+            "dataType": "dateTime",
+            "name": "PREV_YR_ME_DT",
+            "sourceColumn": "PREV_YR_ME_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source ID",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SRC_ID"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Calendar ID",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_CAL_ID"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Calendar Date",
+            "isKey": true,
+            "displayFolder": "Attributes",
+            "sourceColumn": "CAL_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Calendar Name",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_CAL_NM"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Month",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_MTH"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day of Calendar Week",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_OF_CAL_WK"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Year Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Year Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Year End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YE_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Quarter Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Quarter Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Quarter End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Quarters in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "QTR_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Month Number",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "MTH_NUM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Short Name of Month",
+            "sortByColumn": "Month Number",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SHRT_NM_OF_MTH"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Month Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Month End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ME_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Months in Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_IN_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Months in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "MTH_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ISO Week Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_WK_NUM"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ISO Week Year Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ISO_WK_YR_NUM"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Week Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Week End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Weeks in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WK_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Day Number",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAY_NUM"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Name of Day",
+            "displayFolder": "Attributes",
+            "sourceColumn": "NM_OF_DAY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Short Name of Day",
+            "sortByColumn": "Day of Calendar Week",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SHRT_NM_OF_DAY"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Quarter",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_QTR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Month",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_MTH"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Week Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_WK_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Working Day Flag",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "WRK_DAY_FL"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Year",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YR"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Fiscal Year Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YR_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Fiscal Year End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_YE_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Fiscal Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_FISC_YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Period Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_PER_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Fiscal Period",
+            "displayFolder": "Attributes",
+            "sourceColumn": "FISC_PER"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Period Start Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER_STRT_DT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Period End Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER_END_DT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Days in Period",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DAYS_IN_PER"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Periods in Fiscal Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PERS_IN_FISC_YR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Special Periods in Financial Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SPL_PERS_IN_FYR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Annualizing Factor",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ANL_FACT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_YTD",
+            "sourceColumn": "ANL_FACT_YTD"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_QTD",
+            "sourceColumn": "ANL_FACT_QTD"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "ANL_FACT_MTH",
+            "sourceColumn": "ANL_FACT_MTH"
+          }
+        ],
+        "dataCategory": "Time",
+        "name": "D Time",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"D_TIME\".* FROM \"U01_EDW_SEM_OTH_V\".\"D_TIME\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "D_TIME"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "F_CFR_ADJ",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_CFR_V\".\"F_CFR_ADJ\".* FROM \"U01_EDW_SEM_CFR_V\".\"F_CFR_ADJ\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Geographic Area Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "GEO_AREA_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "GL Corp Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "GL_CORP_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "GL Cost Center",
+            "displayFolder": "Attributes",
+            "sourceColumn": "GL_COST_CENTRE"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "GL Branch Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "GL_BRANCH_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "GL Account",
+            "displayFolder": "Attributes",
+            "sourceColumn": "GL_ACCT"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Transaction Amount",
+            "displayFolder": "Measures",
+            "sourceColumn": "TXN_AMT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "DR/CR Indicator",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DR_CR_IND"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Product Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PROD_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Product Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PROD_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account No",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CFR_ACCT_NO",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CFR_ACCT_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Home Currency",
+            "displayFolder": "Attributes",
+            "sourceColumn": "HOME_CCY"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "BUSN_DT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Transaction Currency",
+            "displayFolder": "Attributes",
+            "sourceColumn": "TXN_CCY"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Transaction Amount in Home Currency",
+            "displayFolder": "Measures",
+            "sourceColumn": "TXN_AMT_IN_HOME_CCY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Adjustment'[Business Date] & \"~\" & 'F CFR Adjustment'[CFR Account No]",
+            "name": "BUSN_DT_CFR_ACCT_NO",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "F CFR Adjustment",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_CFR_V\".\"F_CFR_ADJ\".* FROM \"U01_EDW_SEM_CFR_V\".\"F_CFR_ADJ\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "F_CFR_ADJ"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "F_CFR_BAL",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_CFR_V\".\"F_CFR_BAL\".* FROM \"U01_EDW_SEM_CFR_V\".\"F_CFR_BAL\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Period",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "ENT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ICP",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "ICP",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Amount",
+            "displayFolder": "Measures",
+            "sourceColumn": "AMT"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "BUSN_DT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CFR_ACCT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Report View",
+            "displayFolder": "Attributes",
+            "sourceColumn": "RPT_VIEW"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Currency",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CCY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Scenario Code",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SCNRO_CD",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM1_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom2 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM2_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom3 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM3_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom4 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM4_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Balance'[Business Date] & \"~\" & 'F CFR Balance'[Entity]",
+            "name": "BUSN_DT_ENT",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Balance'[Business Date] & \"~\" & 'F CFR Balance'[Custom1 C]",
+            "name": "BUSN_DT_CUSTM1_C",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Balance'[Business Date] & \"~\" & 'F CFR Balance'[CFR Account]",
+            "name": "BUSN_DT_CFR_ACCT",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Balance'[Business Date] & \"~\" & 'F CFR Balance'[Scenario Code]",
+            "name": "BUSN_DT_SCNRO_CD",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Balance'[Business Date] & \"~\" & 'F CFR Balance'[ICP]",
+            "name": "BUSN_DT_ICP",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "F CFR Balance",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_CFR_V\".\"F_CFR_BAL\".* FROM \"U01_EDW_SEM_CFR_V\".\"F_CFR_BAL\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "F_CFR_BAL"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "F_CFR_ELIMJL",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_CFR_V\".\"F_CFR_ELIMJL\".* FROM \"U01_EDW_SEM_CFR_V\".\"F_CFR_ELIMJL\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Elimination Type",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ELIM_TYPE"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Scenario",
+            "displayFolder": "Attributes",
+            "sourceColumn": "SCNRO"
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "Year",
+            "summarizeBy": "none",
+            "displayFolder": "Attributes",
+            "sourceColumn": "YR"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Period",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PER"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Parent Entity",
+            "displayFolder": "Attributes",
+            "sourceColumn": "PARNT_ENT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Child Entity",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CHILD_ENT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Currency",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CCY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Counterparty",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CNTPTY"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "CFR Account",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CFR_ACCT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Debit Credit",
+            "displayFolder": "Attributes",
+            "sourceColumn": "DR_CR"
+          },
+          {
+            "sourceProviderType": "Decimal",
+            "dataType": "double",
+            "name": "Amount",
+            "displayFolder": "Measures",
+            "sourceColumn": "AMT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Elimination Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ELIM_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "BUSN_DT",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM1_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom2 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM2_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom3 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM3_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom4 C",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CUSTM4_C",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "RECORD_DELETED_FLAG",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "RECORD_DELETED_FLAG",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "SmallInt",
+            "dataType": "int64",
+            "name": "CTL_ID",
+            "summarizeBy": "none",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "CTL_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "expression": "'F CFR Elimination Journal'[Business Date] & \"~\" & 'F CFR Elimination Journal'[CFR Account]",
+            "name": "BUSN_DT_CFR_ACCT",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "F CFR Elimination Journal",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_CFR_V\".\"F_CFR_ELIMJL\".* FROM \"U01_EDW_SEM_CFR_V\".\"F_CFR_ELIMJL\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "F_CFR_ELIMJL"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_CFR_IDSTRY",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H CFR Industry Dated - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Code",
+                "column": "Level 04 Code",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Code",
+                "column": "Level 05 Code",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Code",
+                "column": "Level 06 Code",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Code",
+                "column": "Level 07 Code",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Code",
+                "column": "Level 08 Code",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Code",
+                "column": "Level 09 Code",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Code",
+                "column": "Level 10 Code",
+                "ordinal": 9
+              }
+            ]
+          },
+          {
+            "name": "H CFR Industry Dated - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Description",
+                "column": "Level 04 Description",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Description",
+                "column": "Level 05 Description",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Description",
+                "column": "Level 06 Description",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Description",
+                "column": "Level 07 Description",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Description",
+                "column": "Level 08 Description",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Description",
+                "column": "Level 09 Description",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Description",
+                "column": "Level 10 Description",
+                "ordinal": 9
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 C",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_C"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "expression": "'X H CFR Industry Dated'[Business Date] & \"~\" & 'X H CFR Industry Dated'[Custom1 C]",
+            "name": "BUSN_DT_CUSTM1_C",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "X H CFR Industry Dated",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_CFR_IDSTRY"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_CFR_IDSTRY_C",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY_C\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H CFR Industry - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Code",
+                "column": "Level 04 Code",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Code",
+                "column": "Level 05 Code",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Code",
+                "column": "Level 06 Code",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Code",
+                "column": "Level 07 Code",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Code",
+                "column": "Level 08 Code",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Code",
+                "column": "Level 09 Code",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Code",
+                "column": "Level 10 Code",
+                "ordinal": 9
+              }
+            ]
+          },
+          {
+            "name": "H CFR Industry - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Description",
+                "column": "Level 04 Description",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Description",
+                "column": "Level 05 Description",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Description",
+                "column": "Level 06 Description",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Description",
+                "column": "Level 07 Description",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Description",
+                "column": "Level 08 Description",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Description",
+                "column": "Level 09 Description",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Description",
+                "column": "Level 10 Description",
+                "ordinal": 9
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 C",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_C"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "H CFR Industry",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_CFR_IDSTRY_C\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_CFR_IDSTRY_C"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_ENT_LEGAL",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H Entity Legal Dated - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Description",
+                "column": "Level 04 Description",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Description",
+                "column": "Level 05 Description",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Description",
+                "column": "Level 06 Description",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Description",
+                "column": "Level 07 Description",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Description",
+                "column": "Level 08 Description",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Description",
+                "column": "Level 09 Description",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Description",
+                "column": "Level 10 Description",
+                "ordinal": 9
+              }
+            ]
+          },
+          {
+            "name": "H Entity Legal Dated - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Code",
+                "column": "Level 04 Code",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Code",
+                "column": "Level 05 Code",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Code",
+                "column": "Level 06 Code",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Code",
+                "column": "Level 07 Code",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Code",
+                "column": "Level 08 Code",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Code",
+                "column": "Level 09 Code",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Code",
+                "column": "Level 10 Code",
+                "ordinal": 9
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "expression": "'X H Entity Legal Dated'[Business Date] & \"~\" & 'X H Entity Legal Dated'[Entity]",
+            "name": "BUSN_DT_ENT",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "X H Entity Legal Dated",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_ENT_LEGAL"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_ENT_LEGAL_C",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL_C\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H Entity Legal - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Code",
+                "column": "Level 04 Code",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Code",
+                "column": "Level 05 Code",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Code",
+                "column": "Level 06 Code",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Code",
+                "column": "Level 07 Code",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Code",
+                "column": "Level 08 Code",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Code",
+                "column": "Level 09 Code",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Code",
+                "column": "Level 10 Code",
+                "ordinal": 9
+              }
+            ]
+          },
+          {
+            "name": "H Entity Legal - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Description",
+                "column": "Level 04 Description",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Description",
+                "column": "Level 05 Description",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Description",
+                "column": "Level 06 Description",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Description",
+                "column": "Level 07 Description",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Description",
+                "column": "Level 08 Description",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Description",
+                "column": "Level 09 Description",
+                "ordinal": 8
+              },
+              {
+                "name": "Level 10 Description",
+                "column": "Level 10 Description",
+                "ordinal": 9
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 10 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_10_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "H Entity Legal",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_LEGAL_C\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_ENT_LEGAL_C"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_ENT_TERR",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H Entity Territory Dated - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Code",
+                "column": "Level 04 Code",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Code",
+                "column": "Level 05 Code",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Code",
+                "column": "Level 06 Code",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Code",
+                "column": "Level 07 Code",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Code",
+                "column": "Level 08 Code",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Code",
+                "column": "Level 09 Code",
+                "ordinal": 8
+              }
+            ]
+          },
+          {
+            "name": "H Entity Territory Dated - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Description",
+                "column": "Level 04 Description",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Description",
+                "column": "Level 05 Description",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Description",
+                "column": "Level 06 Description",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Description",
+                "column": "Level 07 Description",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Description",
+                "column": "Level 08 Description",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Description",
+                "column": "Level 09 Description",
+                "ordinal": 8
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "expression": "'X H Entity Territory Dated'[Business Date] & \"~\" & 'X H Entity Territory Dated'[Entity]",
+            "name": "BUSN_DT_ENT",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "X H Entity Territory Dated",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_ENT_TERR"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_ENT_TERR_C",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR_C\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H Entity Territory - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Description",
+                "column": "Level 04 Description",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Description",
+                "column": "Level 05 Description",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Description",
+                "column": "Level 06 Description",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Description",
+                "column": "Level 07 Description",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Description",
+                "column": "Level 08 Description",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Description",
+                "column": "Level 09 Description",
+                "ordinal": 8
+              }
+            ]
+          },
+          {
+            "name": "H Entity Territory - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              },
+              {
+                "name": "Level 04 Code",
+                "column": "Level 04 Code",
+                "ordinal": 3
+              },
+              {
+                "name": "Level 05 Code",
+                "column": "Level 05 Code",
+                "ordinal": 4
+              },
+              {
+                "name": "Level 06 Code",
+                "column": "Level 06 Code",
+                "ordinal": 5
+              },
+              {
+                "name": "Level 07 Code",
+                "column": "Level 07 Code",
+                "ordinal": 6
+              },
+              {
+                "name": "Level 08 Code",
+                "column": "Level 08 Code",
+                "ordinal": 7
+              },
+              {
+                "name": "Level 09 Code",
+                "column": "Level 09 Code",
+                "ordinal": 8
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Entity Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ENT_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 05 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_05_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 06 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_06_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 07 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_07_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 08 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_08_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 09 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_09_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "H Entity Territory",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ENT_TERR_C\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_ENT_TERR_C"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_FRS39",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_FRS39\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_FRS39\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H FRS39 Dated - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              }
+            ]
+          },
+          {
+            "name": "H FRS39 Dated - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 C",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_C"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "expression": "'X H FRS39 Dated'[Business Date] & \"~\" & 'X H FRS39 Dated'[Custom1 C]",
+            "name": "BUSN_DT_CUSTM1_C",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "X H FRS39 Dated",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_FRS39\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_FRS39\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_FRS39"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_FRS39_C",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_FRS39_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_FRS39_C\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H FRS39 - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              }
+            ]
+          },
+          {
+            "name": "H FRS39 - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 C",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_C"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Custom1 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "CUSTM1_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 04 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_04_DESC"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "H FRS39",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_FRS39_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_FRS39_C\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_FRS39_C"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_ICP",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ICP\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ICP\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H ICP Dated - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              }
+            ]
+          },
+          {
+            "name": "H ICP Dated - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ICP",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ICP"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ICP Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ICP_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          },
+          {
+            "expression": "'X H ICP Dated'[Business Date] & \"~\" & 'X H ICP Dated'[ICP]",
+            "name": "BUSN_DT_ICP",
+            "type": "calculated",
+            "displayFolder": "Tech Fields",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "X H ICP Dated",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ICP\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ICP\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_ICP"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      },
+      {
+        "partitions": [{
+          "name": "H_ICP_C",
+          "source": {
+            "query": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ICP_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ICP_C\" ",
+            "dataSource": "T3 Source"
+          },
+          "dataView": "full"
+        }],
+        "measures": [],
+        "hierarchies": [
+          {
+            "name": "H ICP - Code",
+            "levels": [
+              {
+                "name": "Level 01 Code",
+                "column": "Level 01 Code",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Code",
+                "column": "Level 02 Code",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Code",
+                "column": "Level 03 Code",
+                "ordinal": 2
+              }
+            ]
+          },
+          {
+            "name": "H ICP - Description",
+            "levels": [
+              {
+                "name": "Level 01 Description",
+                "column": "Level 01 Description",
+                "ordinal": 0
+              },
+              {
+                "name": "Level 02 Description",
+                "column": "Level 02 Description",
+                "ordinal": 1
+              },
+              {
+                "name": "Level 03 Description",
+                "column": "Level 03 Description",
+                "ordinal": 2
+              }
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ICP",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ICP"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "ICP Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "ICP_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 01 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_01_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_CD"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 02 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_02_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Description",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_DESC"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Level 03 Code",
+            "displayFolder": "Attributes",
+            "sourceColumn": "LVL_03_CD"
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Business Date",
+            "displayFolder": "Attributes",
+            "sourceColumn": "BUSN_DT"
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Site ID",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SITE_ID",
+            "isHidden": true
+          },
+          {
+            "sourceProviderType": "VarChar",
+            "dataType": "string",
+            "name": "Source System",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SRC_SYS_NM",
+            "isHidden": true
+          },
+          {
+            "formatString": "dd/MMM/yyyy",
+            "sourceProviderType": "timestamp",
+            "dataType": "dateTime",
+            "name": "Start Date",
+            "displayFolder": "Tech Fields",
+            "sourceColumn": "SNAPSHOT_DATE",
+            "isHidden": true
+          }
+        ],
+        "dataCategory": "",
+        "name": "H ICP",
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT \"U01_EDW_SEM_OTH_V\".\"H_ICP_C\".* FROM \"U01_EDW_SEM_OTH_V\".\"H_ICP_C\" "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "H_ICP_C"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "U01_EDW_SEM_V"
+          }
+        ],
+        "description": ""
+      }
+    ],
+    "defaultMode": "directQuery",
+    "culture": "en-US",
+    "roles": [{
+      "modelPermission": "read",
+      "members": [
+        {"memberName": "NTSGPDOM\\uCTX_EDA_PBI_UAT"},
+        {"memberName": "NTSGPDOM\\vendc8"},
+        {"memberName": "NTSGPDOM\\veneza"},
+        {"memberName": "NTSGPDOM\\tmpob2"},
+        {"memberName": "NTSGPDOM\\uncsav"},
+        {"memberName": "NTSGPDOM\\uncglt"},
+        {"memberName": "NTSGPDOM\\vendm8"},
+        {"memberName": "NTSGPDOM\\vendx1"},
+        {"memberName": "NTSGPDOM\\venris"}
+      ],
+      "name": "Reader"
+    }],
+    "annotations": [{
+      "name": "ClientCompatibilityLevel",
+      "value": "400"
+    }],
+    "dataSources": [{
+      "connectionString": "Data Encryption=True;Data Source=tdp;Persist Security Info=False;Session Character Set=UTF8;Session Mode=DEFAULT;Connection Pooling Timeout=30;Max Pool Size=1000;Integrated Security=True;Recovery=OFF;Command Timeout=120;Connection Timeout=120;",
+      "provider": "Teradata.Client.Provider",
+      "name": "T3 Source",
+      "impersonationMode": "impersonateCurrentUser",
+      "annotations": [{
+        "name": "ConnectionEditUISource",
+        "value": "Teradata"
+      }],
+      "maxConnections": 1000
+    }]
+  }
+}

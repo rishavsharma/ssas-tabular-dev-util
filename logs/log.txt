@@ -1,0 +1,1233 @@
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model Customer : From table column ULT_PARNT_PRTY_EDW_ID is not found in relationship (D_PRTY_ULT_PARNT[ULT_PARNT_PRTY_EDW_ID]=D_PRTY_ULT[PRTY_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model Customer : From table column PRTY_EDW_ID is not found in relationship (D_PRTY_ULT_PARNT[PRTY_EDW_ID]=D_PRTY[PRTY_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model Customer : From table column PRTY_GRP_EDW_ID is not found in relationship (D_PRTY_ULT_PARNT[PRTY_GRP_EDW_ID]=D_PRTY_GRP[PRTY_GRP_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Already have relation in model GWB - Cross Border : (D_PRTY_GWB_CM[MAS_INDRL_CLAS]=H_MAS_INDUSTRY_C[IDSTRY_CD])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Already have relation in model GWB - Cross Border : (D_PRTY_GWB_CM[MAS_INDRL_CLAS]=H_APEX_INDSTRY_C[INDSTRY_CD])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model Merged Model : From table column CLTRL_EDW_ID is not found in relationship (R_ACCT_TO_FACILITY[CLTRL_EDW_ID]=D_CLTRL[CLTRL_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model Merged Model : From table column CHLD_PARTY_GRP_EDW_ID is not found in relationship (D_S29_PRTY_GRP[CHLD_PARTY_GRP_EDW_ID]=D_PRTY_GRP_CHILD[PRTY_GRP_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model Merged Model : From table column PRNT_PARTY_GRP_EDW_ID is not found in relationship (D_S29_PRTY_GRP[PRNT_PARTY_GRP_EDW_ID]=D_PRTY_GRP_PARENT[PRTY_GRP_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelGraph addEdge [ModelGraph]
+SEVERE: Model CASA : From table column ACCT_GRP_AGMT_EDW_ID is not found in relationship (D_TERM_DEP[ACCT_GRP_AGMT_EDW_ID]=D_ACCOUNT_GROUP[AGMT_EDW_ID])
+
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in GWB - Cross Border for table H_PROD_GRP. Retaining original name H_PROD_GRP
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in GWB - Cross Border for table H_PROD_ORG. Retaining original name H_PROD_ORG
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in GWB - Cross Border for table H_GRP_ORG. Retaining original name H_GRP_ORG
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in GWB - Cross Border for table H_GRP_SEGMT. Retaining original name H_GRP_SEGMT
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in GWB - Cross Border for table H_PROD_RPTG. Retaining original name H_PROD_RPTG
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in Merged Model for table D_AGING_BUCKET_DATED_TENOR. Retaining original name D_AGING_BUCKET_DATED_TENOR
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.graph.ModelsWrapper renameModelsFromExcel [ModelsWrapper]
+WARNING: Rename table not found in Merged Model for table D_AGING_BUCKET_DATED_TENOR_BUCKET. Retaining original name D_AGING_BUCKET_DATED_TENOR_BUCKET
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Loans]
+WARNING: Not Found in Tables for F_LOANS:f_loans#prod_coaid
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_PRTY_RLTD:d_prty_rltd#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_PRTY_RLTD:d_prty_rltd#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_PRTY_ULT:d_prty_ult#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_PRTY_ULT:d_prty_ult#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_CTRY:d_ctry#regn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_CTRY:d_ctry#cons_regn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Customer]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_CLNT:d_prty_clnt#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_CLNT:d_prty_clnt#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_RISK:d_prty_risk#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_RISK:d_prty_risk#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_DEBTOR:d_prty_debtor#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_DEBTOR:d_prty_debtor#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_CR_PROT:d_prty_cr_prot#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY_CR_PROT:d_prty_cr_prot#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_CTRY:d_ctry#regn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_CTRY:d_ctry#cons_regn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Factoring]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#rep_mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_CTRY:d_ctry#regn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_CTRY:d_ctry#cons_regn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Country Rating]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Remittance]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY_RISK:d_prty_risk#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY_RISK:d_prty_risk#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY_CUST:d_prty_cust#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY_CUST:d_prty_cust#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY_PRIM:d_prty_prim#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY_PRIM:d_prty_prim#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Trade Finance]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#rep_mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME_ISS:d_time_iss#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_ISU:d_prty_isu#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_ISU:d_prty_isu#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_DEBT_GUART:d_prty_debt_guart#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_DEBT_GUART:d_prty_debt_guart#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_CNTPTY:d_prty_cntpty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_CNTPTY:d_prty_cntpty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_EXCH:d_prty_exch#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY_EXCH:d_prty_exch#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#rsdl_reprc_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#cntrctl_tenr_days
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#origntn_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#reprc_tenr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Treasury]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [GWB - Cross Border]
+WARNING: Not Found in Tables for D_GRM_OFICR_CM:d_grm_oficr_cm#grm_grp_nm
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [GWB - Cross Border]
+WARNING: Not Found in Tables for D_GRM_OFICR_D:d_grm_oficr_d#grm_grp_nm
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [GWB - Cross Border]
+WARNING: Not Found in hierarchies for H Reporting Hierarchy Corp Cost Center - Description FRM:h_rep_hier_corp_cost_center_frm.h reporting hierarchy corp cost center - description frm
+Jan 28, 2020 4:36:18 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [GWB - Cross Border]
+WARNING: Not Found in hierarchies for H Reporting Hierarchy Corp Cost Center - Description GRM:h_rep_hier_corp_cost_center_grm.h reporting hierarchy corp cost center - description grm
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#rep_mth_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#mth_yr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#mth_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#qtr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#qtr_yr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#fy_strt_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#fy_end_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#yr_per
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#qtr_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#yr_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_yr_ye_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_me_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_qtr_end_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#prev_yr_me_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#anl_fact_ytd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#anl_fact_qtd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RATG_APPR:d_time_ratg_appr#anl_fact_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#rep_mth_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#mth_yr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#mth_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#qtr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#qtr_yr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#fy_strt_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#fy_end_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#yr_per
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#qtr_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#yr_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#prev_yr_ye_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#prev_me_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#prev_qtr_end_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#prev_yr_me_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#anl_fact_ytd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#anl_fact_qtd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_VALUT:d_time_valut#anl_fact_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#rep_mth_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#mth_yr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#mth_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#qtr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#qtr_yr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#fy_strt_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#fy_end_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#yr_per
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#qtr_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#yr_end_ind
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#prev_yr_ye_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#prev_me_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#prev_qtr_end_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#prev_yr_me_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#anl_fact_ytd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#anl_fact_qtd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_TIME_RUN:d_time_run#anl_fact_mth
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_EXPSR:d_ctry_expsr#regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_EXPSR:d_ctry_expsr#cons_regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_ENT:d_ctry_ent#regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_ENT:d_ctry_ent#cons_regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_BOOK:d_ctry_book#regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_BOOK:d_ctry_book#cons_regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_INC:d_ctry_inc#regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_INC:d_ctry_inc#cons_regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_OPR:d_ctry_opr#regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_CTRY_OPR:d_ctry_opr#cons_regn
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_FOR_PRODUCT:d_account_for_product#rsdl_reprc_days
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_FOR_PRODUCT:d_account_for_product#cntrctl_tenr_days
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_FOR_PRODUCT:d_account_for_product#origntn_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_D_FOR_PRODUCT:d_account_d_for_product#rsdl_reprc_days
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_D_FOR_PRODUCT:d_account_d_for_product#cntrctl_tenr_days
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_D_FOR_PRODUCT:d_account_d_for_product#origntn_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_D_FOR_PRODUCT:d_account_d_for_product#reprc_tenr
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#bucket_type
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#maturty_buckt_cd
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#maturty_buckt_desc
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#range_type
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#from_days
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#to_days
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_AGING_TENOR_DATED_BUCKET:d_aging_tenor_dated_bucket#days_cnt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for MDM_GEN_STD_MAP_CTRY_BOOKING_GRP:mdm_gen_std_map_ctry_booking_grp#tgt_cd_3
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for MDM_GEN_STD_MAP_CTRY_BOOKING_GRP:mdm_gen_std_map_ctry_booking_grp#tgt_cd_4
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for MDM_GEN_STD_MAP_CTRY_BOOKING_GRP:mdm_gen_std_map_ctry_booking_grp#tgt_cd_5
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for MDM_GEN_STD_MAP_CTRY_BOOKING_GRP:mdm_gen_std_map_ctry_booking_grp#tgt_cd_6
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#origntn_dt
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for F_OBR_LMT:f_obr_lmt#lo_acct_sts
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for F_OBR_LMT:f_obr_lmt#record_deleted_flag
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for F_OBR_LMT:f_obr_lmt#snapshot_date
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for F_OBR_LMT:f_obr_lmt#ctl_id
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Merged Model]
+WARNING: Not Found in Tables for F_OBR_LMT:f_obr_lmt#src_sys_nm
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G ELR Bucket'[Custom ELR Band 2]
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G ELR Bucket'[EL Min]
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G ELR Bucket'[EL Max]
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for table name DUMMY_RISK:'G ELR Bucket'
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G ELR Bucket'[ELR]
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G ELR Bucket'[EL Min]
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G ELR Bucket'[EL Max]
+Jan 28, 2020 4:36:20 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for table name DUMMY_RISK:'G ELR Bucket'
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'D Time'[Calendar Date]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for table name DUMMY_RISK:'D Time'
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G CRR Bucket'[Custom CRR Band 2]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G CRR Bucket'[PD Min]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G CRR Bucket'[PD Max]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for table name DUMMY_RISK:'G CRR Bucket'
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G CRR Bucket'[CRR]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G CRR Bucket'[PD Min]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_RISK:'G CRR Bucket'[PD Max]
+Jan 28, 2020 4:36:21 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for table name DUMMY_RISK:'G CRR Bucket'
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H Interest Bearing'[Type]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H Interest Bearing'[Type]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'D Time'[YTD Annualizing Factor]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H Interest Bearing'[Type]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H Interest Bearing'[Type]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'D Time'[QTD Annualizing Factor]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H Interest Bearing'[Type]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H Interest Bearing'[Type]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'D Time'[MTD Annualizing Factor]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found for DUMMY_FINANCE:'H GL Node Accounts'[Node Code]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_AGING_BUCKET_TENOR:d_aging_bucket_tenor#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_AGING_BUCKET_MATURITY:d_aging_bucket_maturity#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_NPL_AGING_BUCKET:d_npl_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_NPL_AGING_PAST_BUCKET:d_npl_aging_past_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_DLQ_AGING_PAST_BUCKET:d_dlq_aging_past_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_SM_AGING_BUCKET:d_sm_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_DLQ_AGING_DLQNCY_BUCKET:d_dlq_aging_dlqncy_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_CNTC_AGING_BUCKET:d_cntc_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_HRR_TENOR_AGING_BUCKET:d_hrr_tenor_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_REPRC_TENR_AGING_BUCKET:d_reprc_tenr_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_RSDL_REPRC_AGING_BUCKET:d_rsdl_reprc_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_CNTRCTL_TENR_AGING_BUCKET:d_cntrctl_tenr_aging_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_CNTRCTL_TENR_AGING_DATED_BUCKET:d_cntrctl_tenr_aging_dated_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_REPRC_TENR_AGING_DATED_BUCKET:d_reprc_tenr_aging_dated_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename renameCalculatedColumns [Merged Model]
+WARNING: Not Found in sortByColumn for D_RSDL_REPRC_AGING_DATED_BUCKET:d_rsdl_reprc_aging_dated_bucket#code
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[Unit No]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[House No]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[Building Name]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[Street Name]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[Address Line]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[PO Box]
+Jan 28, 2020 4:36:25 PM com.ja.ssas.tabular.rename.TabularRename replaceExpression [Merged Model]
+WARNING: Not Found Local for D_CLTRL_ACC:[Postal Code]
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [Merged Model]
+WARNING: Not Found Column for Relationship:D_AGING_TENOR_DATED_BUCKET#DAYS_CNT
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:26 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Counterparty Credit Exposure]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFR]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#rsdl_reprc_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#cntrctl_tenr_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#origntn_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#reprc_tenr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#scnro_sub_cat
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#scnro_sub_cat_desc
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#site_id
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#record_deleted_flag
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#snapshot_date
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#ctl_id
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#src_sys_nm
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#valut_type
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#valut_type_desc
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#site_id
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#record_deleted_flag
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#snapshot_date
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#ctl_id
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CAL]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#src_sys_nm
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [CAL]
+WARNING: Not Found Column for Relationship:D_SCNRO_SUB_CAT#SCNRO_SUB_CAT
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [CAL]
+WARNING: Not Found Column for Relationship:D_VALUT_TYPE#VALUT_TYPE
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_ACCOUNT_GROUP:d_account_group#rsdl_reprc_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_ACCOUNT_GROUP:d_account_group#cntrctl_tenr_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_ACCOUNT_GROUP:d_account_group#origntn_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CASA]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:27 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Universal GL]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#scnro_sub_cat
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#scnro_sub_cat_desc
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#site_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#record_deleted_flag
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#snapshot_date
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#ctl_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#src_sys_nm
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#valut_type
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#valut_type_desc
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#site_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#record_deleted_flag
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#snapshot_date
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#ctl_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Middle Out]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#src_sys_nm
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [CFV - Middle Out]
+WARNING: Not Found Column for Relationship:D_SCNRO_SUB_CAT#SCNRO_SUB_CAT
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [CFV - Middle Out]
+WARNING: Not Found Column for Relationship:D_VALUT_TYPE#VALUT_TYPE
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#scnro_sub_cat
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#scnro_sub_cat_desc
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#site_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#record_deleted_flag
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#snapshot_date
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#ctl_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_SCNRO_SUB_CAT:d_scnro_sub_cat#src_sys_nm
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#valut_type
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#valut_type_desc
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#site_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#record_deleted_flag
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#snapshot_date
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#ctl_id
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [CFV - Recon]
+WARNING: Not Found in Tables for D_VALUT_TYPE:d_valut_type#src_sys_nm
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [CFV - Recon]
+WARNING: Not Found Column for Relationship:D_VALUT_TYPE#VALUT_TYPE
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameRelationships [CFV - Recon]
+WARNING: Not Found Column for Relationship:D_VALUT_TYPE#VALUT_TYPE
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_PRTY_CORP:d_prty_corp#bnk_ctgy
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_PRTY_CORP:d_prty_corp#bnk_classfctn
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#rsdl_reprc_days
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#cntrctl_tenr_days
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT:d_account#origntn_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#rsdl_reprc_days
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#cntrctl_tenr_days
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#origntn_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_ACCOUNT_D:d_account_d#reprc_tenr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_ctgy
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_PRTY:d_prty#bnk_classfctn
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_yr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#mth_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_yr
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_strt_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#fy_end_mth
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_per
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#qtr_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#yr_end_ind
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_qtr_end_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_ye_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_me_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_qtr_end_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#prev_yr_me_dt
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_ytd
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_qtd
+Jan 28, 2020 4:36:28 PM com.ja.ssas.tabular.rename.TabularRename renameColumns [Cards]
+WARNING: Not Found in Tables for D_TIME:d_time#anl_fact_mth
+Jan 28, 2020 4:36:32 PM com.ja.ssas.tabular.common.LogCountHandler lambda$printSummary$0 [LogCountHandler]
+SEVERE: 9 SEVERE Issues found
+Jan 28, 2020 4:36:32 PM com.ja.ssas.tabular.common.LogCountHandler lambda$printSummary$0 [LogCountHandler]
+WARNING: 601 WARNING Issues found
