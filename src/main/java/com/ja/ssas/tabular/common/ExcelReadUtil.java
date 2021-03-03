@@ -8,7 +8,9 @@ package com.ja.ssas.tabular.common;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jxl.Sheet;
@@ -27,25 +29,29 @@ public class ExcelReadUtil {
     private static final Logger logger = LogCountHandler.getInstance().getLogger("ExcelReadUtil");
     private Workbook workbook = null;
     private List<String> sheets;
-
-    public ExcelReadUtil(String fileName) {
-        try {
-            workbook = Workbook.getWorkbook(new File(fileName));
-            this.sheets = Arrays.asList(workbook.getSheetNames());
-        } catch (IOException | BiffException e) {
-            logger.log(Level.SEVERE, "Error with reding file:" + fileName, e);
-        }
-    }
-
+    private boolean readKey = false;
+    private HashMap<String, Set<Integer>> sheetSet = new HashMap<String, Set<Integer>>();
+    private String workBookName;
+    private boolean readComment = false;
     public ExcelReadUtil(File file) {
         try {
             workbook = Workbook.getWorkbook(file);
             this.sheets = Arrays.asList(workbook.getSheetNames());
+            this.workBookName = file.getName();
         } catch (IOException | BiffException e) {
             logger.log(Level.SEVERE, "Error with reding file:" + file, e);
         }
     }
-
+    
+    public ExcelReadUtil(File file, boolean readKey) {
+        this(file);
+        sheetSet = Model.getSheetKeys();
+        this.readKey = readKey;            
+    }
+    
+    public void setReadComment(boolean readComment){
+        this.readComment = readComment;
+    }
     public String[] getSheets() {
         return workbook.getSheetNames();
     }
@@ -61,12 +67,15 @@ public class ExcelReadUtil {
                 logger.log(Level.SEVERE, "Sheet not found:{0}", sheetName);
                 return returnval;
             }
+            
+            Set ordicalSet = sheetSet.get(sheetName);
             Sheet sheet = workbook.getSheet(sheetName);
             int rows = sheet.getRows();
             Enum<E>[] colVal = fileColumns.getEnumConstants();
             for (int i = 1; i < rows; i++) {
                 JSONObject val = new JSONObject();
                 boolean rowRead = false;
+                String colKey = "", allColumnConcat="";
                 for (int j = 0; j < colVal.length; j++) {
                     String columnName = colVal[j].toString();
                     String colValue = "";
@@ -97,9 +106,32 @@ public class ExcelReadUtil {
                             val.put(columnName, colValue);
                         }
                     }
+                    
+                    if(this.readKey){
+                        if(ordicalSet.contains(colVal[j].ordinal())){
+                            colKey += colValue + " | ";
+                        }else{
+                            allColumnConcat += colValue;
+                        }
+                        
+                    }
 
                 }
+                if(R.COMMENTS){
+                    try{
+                    String colValue = sheet.getCell(colVal.length, i).getContents().trim();
+                    val.put(Model.Comments._COMMENTS.toString(), colValue);
+                    }catch(ArrayIndexOutOfBoundsException e){
+                        
+                    }
+                }
                 if (rowRead) {
+                    if(this.readKey){
+                        val.put(Model.ExcelMetaData.__KEY.toString(), colKey.toLowerCase());
+                        val.put(Model.ExcelMetaData.__HASH.toString(), allColumnConcat.toLowerCase());
+                    }
+                    val.put(Model.ExcelMetaData.__ROWNUM.toString(), i+1);
+                    val.put(Model.ExcelMetaData.__WORKBOOK_NAME.toString(), workBookName);
                     returnval.put(val);
                 }
 

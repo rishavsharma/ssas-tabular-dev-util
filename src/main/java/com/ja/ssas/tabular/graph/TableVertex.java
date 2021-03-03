@@ -8,8 +8,8 @@ package com.ja.ssas.tabular.graph;
 import com.ja.ssas.tabular.common.LogCountHandler;
 import com.ja.ssas.tabular.common.Model;
 import com.ja.ssas.tabular.common.ModelUtil;
+import com.ja.ssas.tabular.common.R;
 import com.ja.ssas.tabular.rename.SchemaChange;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.logging.Level;
@@ -31,21 +31,23 @@ public class TableVertex {
     private final String schemaName;
     private Set<String> schemas;
     private final HashMap<String, DerivedColumn> derivedColumnMap;
-    private final HashMap<String, JSONObject> allColumnMap;
+    private final HashMap<String, JSONObject> allTableColumnMap;
     private final HashMap<String, JSONObject> allHierarchyMap;
     private final HashMap<String, JSONObject> baseColumn;
     private JSONArray columns;
     private JSONArray measures;
     private JSONArray hierarchies;
+    private ModelGraph modelGraph;
 
-    public TableVertex(JSONObject table, String modelName) {
+    public TableVertex(JSONObject table, ModelGraph modelGraph) {
         this.table = table;
+        this.modelGraph = modelGraph;
         this.logicalName = table.getString("name");
         this.dbName = ModelUtil.getAnnotation(table, Model.TableAnnotations._TM_ExtProp_DbTableName.toString(), this.logicalName);
-        this.modelName = modelName;
+        this.modelName = modelGraph.getName();
         this.schemaName = ModelUtil.getAnnotation(table, Model.TableAnnotations._TM_ExtProp_DbSchemaName.toString(), "");
         this.derivedColumnMap = new HashMap<>();
-        this.allColumnMap = new HashMap<>();
+        this.allTableColumnMap = new HashMap<>();
         this.allHierarchyMap = new HashMap<>();
         this.baseColumn = new HashMap<>();
         initDerivedColumn();
@@ -58,13 +60,15 @@ public class TableVertex {
                 JSONObject column = columns.getJSONObject(j);
                 String columnName = column.getString("name");
                 if (column.has("type") && column.getString("type").equalsIgnoreCase("calculated")) {
-                    derivedColumnMap.put(columnName, new DerivedColumn(column, Model.ColumnType.CALCULATED_COLUMN.toString(), columnName));
-                    allColumnMap.put(columnName, column);
+                    derivedColumnMap.put(columnName.toLowerCase(), new DerivedColumn(column, Model.ColumnType.CALCULATED_COLUMN.toString(), columnName, this.logicalName));
+                    allTableColumnMap.put(columnName.toLowerCase(), column);
                 } else {
-                    baseColumn.put(columnName, column);
+                    baseColumn.put(columnName.toLowerCase(), column);
                 }
-                allColumnMap.put(columnName, column);
+                allTableColumnMap.put(columnName.toLowerCase(), column);
             }
+        } else {
+            this.columns = new JSONArray();
         }
 
         if (table.has("measures")) {
@@ -72,8 +76,10 @@ public class TableVertex {
             for (int j = 0; j < measures.length(); j++) {
                 JSONObject measure = measures.getJSONObject(j);
                 String columnName = measure.getString("name");
-                derivedColumnMap.put(columnName, new DerivedColumn(measure, Model.ColumnType.MEASURE.toString(), columnName));
-                allColumnMap.put(columnName, measure);
+                DerivedColumn derivedMeasure = new DerivedColumn(measure, Model.ColumnType.MEASURE.toString(), columnName, this.logicalName);
+                derivedColumnMap.put(columnName.toLowerCase(), derivedMeasure);
+                this.modelGraph.getMeasureMap().put(columnName.toLowerCase(), derivedMeasure);
+                allTableColumnMap.put(columnName.toLowerCase(), measure);
             }
         } else {
             this.measures = new JSONArray();
@@ -95,7 +101,7 @@ public class TableVertex {
 
     @Override
     public TableVertex clone() {
-        return new TableVertex(new JSONObject(table.toString()), modelName);
+        return new TableVertex(new JSONObject(table.toString()), modelGraph);
     }
 
     public TableVertex createAlias(String name, String model) {
@@ -117,8 +123,8 @@ public class TableVertex {
         this.table = table;
     }
 
-    public HashMap<String, JSONObject> getAllColumnMap() {
-        return this.allColumnMap;
+    public HashMap<String, JSONObject> getAllTableColumnMap() {
+        return this.allTableColumnMap;
     }
 
     public HashMap<String, JSONObject> getBaseColumnMap() {
@@ -152,6 +158,14 @@ public class TableVertex {
         return 0;
     }
 
+    public ModelGraph getModelGraph() {
+        return modelGraph;
+    }
+
+    public void setModelGraph(ModelGraph modelGraph) {
+        this.modelGraph = modelGraph;
+    }
+
     public void setSchema(String from, String to) {
         SchemaChange schemaChange = new SchemaChange(table, from, to);
         schemaChange.renameSchema();
@@ -165,7 +179,7 @@ public class TableVertex {
         schemaChange = null;
 
     }
-
+    
     public String getLogicalName() {
         return logicalName;
     }
@@ -183,13 +197,16 @@ public class TableVertex {
 
     public JSONArray getExcelDerivedArray() {
         JSONArray retList = new JSONArray();
-        derivedColumnMap.forEach((name, column) -> {
+        derivedColumnMap.forEach((key, column) -> {
             JSONObject retColumn = new JSONObject(column.getColumn(), Model.DerivedColumn.getStringValues());
 
             retColumn.put(Model.DerivedColumn.MODEL_NAME.toString(), modelName);
             retColumn.put(Model.DerivedColumn.PHYSICAL_TABLE.toString(), dbName);
             retColumn.put(Model.DerivedColumn.TABLE_NAME.toString(), logicalName);
             retColumn.put(Model.DerivedColumn.COLUMN_TYPE.toString(), column.getType());
+            if (R.COMMENTS) {
+                ModelUtil.setCommentsAnnotaion(column.getColumn(), retColumn);
+            }
             retList.put(retColumn);
         });
         return retList;
@@ -201,33 +218,46 @@ public class TableVertex {
         logger.log(Level.FINE, "Setting derived column {0} in table {1}", new Object[]{columnName, this.logicalName});
         StringBuilder sb = new StringBuilder();
         ModelUtil.getLocalColumnsFromExp(exp).forEach((localCol) -> {
-            String searchKey = localCol.replaceAll("[\\[\\]]", "");
-            if (!allColumnMap.containsKey(searchKey)) {
-                sb.append("Column name ").append(localCol).append(" not found").append("\n");
+//            String searchKey = localCol.replaceAll("[\\[\\]]", "");
+            String searchKey = this.logicalName + localCol;
+//            if (!(allTableColumnMap.containsKey(searchKey.toLowerCase()) || this.modelGraph.getMeasureMap().containsKey(localCol.toLowerCase()))) {
+//                sb.append("Column/Measure name ").append(localCol).append(" not found").append("\n");
+//            }
+            if (!(this.modelGraph.getAllModelColumnMap().containsKey(searchKey.toLowerCase()) || this.modelGraph.getAllModelColumnMap().containsKey(localCol.toLowerCase()))) {
+                sb.append("Column/Measure name ").append(localCol).append(" not found").append("\n");
             }
         });
-        if (sb.length() > 0 && !columnType.equals(Model.ColumnType.MEASURE.toString())) {
+        if (sb.length() > 0) {
             ModelUtil.putErrorInfo(column, sb.toString(), Model.ExcelMetaData.__ERROR.toString());
             logger.log(Level.SEVERE, "Table {0} Error Creating derived column/measure {1} : {2}", new Object[]{this.logicalName, columnName, sb.toString()});
-            return false;
         }
-        if (derivedColumnMap.containsKey(columnName)) {
+        if (derivedColumnMap.containsKey(columnName.toLowerCase())) {
             logger.log(Level.FINEST, "Column already exist..");
-            derivedColumnMap.get(columnName).setColumn(column);
+            derivedColumnMap.get(columnName.toLowerCase()).setColumn(column);
             ModelUtil.putErrorInfo(column, String.format("Derived column %1$s overwritten in Table %2$s", columnName, logicalName), Model.ExcelMetaData.__WARNING.toString());
         } else {
-            if (!allColumnMap.containsKey(columnName)) {
+            if (columnType.equalsIgnoreCase(Model.ColumnType.MEASURE.toString()) && this.modelGraph.getMeasureMap().containsKey(columnName.toLowerCase())) {
+                DerivedColumn dmModel = this.modelGraph.getMeasureMap().get(columnName.toLowerCase());
+                ModelUtil.putErrorInfo(column, String.format("Measure name %1$s in Table %2$s already exist, there are duplicate in Model %3$s and table name %4$s", columnName, logicalName, modelName, dmModel.getTableName()), Model.ExcelMetaData.__ERROR.toString());
+                logger.log(Level.SEVERE, "Measure name {0} in Table {1} already exist in Model {2} and table {3}", new Object[]{columnName, logicalName, modelName, dmModel.getTableName()});
+                return false;
+            }
+            if (!allTableColumnMap.containsKey(columnName.toLowerCase())) {
                 logger.log(Level.FINEST, "Creating new column...");
                 JSONObject cc = new JSONObject(column, Model.DerivedColumn.getModelValueArray());
-
-                derivedColumnMap.put(columnName, new DerivedColumn(cc, columnType, columnName));
-                allColumnMap.put(columnName, cc);
+                
+                DerivedColumn derivedColumn = new DerivedColumn(cc, columnType, columnName, this.logicalName);
+                derivedColumnMap.put(columnName.toLowerCase(), derivedColumn);
+                allTableColumnMap.put(columnName.toLowerCase(), cc);
                 if (columnType.equalsIgnoreCase(Model.ColumnType.CALCULATED_COLUMN.toString())) {
                     columns.put(cc);
                 } else if (columnType.equalsIgnoreCase(Model.ColumnType.MEASURE.toString())) {
                     measures.put(cc);
+                    this.modelGraph.getMeasureMap().put(columnName.toLowerCase(), derivedColumn);
                 }
-
+                if (R.COMMENTS) {
+                    ModelUtil.setComments(column, cc);
+                }
                 ModelUtil.putErrorInfo(column, String.format("New Derived column %1$s created in Table %2$s", columnName, logicalName), Model.ExcelMetaData.__INFO.toString());
 
             } else {
@@ -253,6 +283,9 @@ public class TableVertex {
                     retlevel.put(Model.HierarchyLevel.NEW_HIERARCHY_NAME.toString(), hierName);
                     retlevel.put(Model.HierarchyLevel.MODEL_NAME.toString(), modelName);
                     retlevel.put(Model.HierarchyLevel.TABLE_NAME.toString(), logicalName);
+                    if (R.COMMENTS) {
+                        ModelUtil.setCommentsAnnotaion(level, retlevel);
+                    }
                     retList.put(retlevel);
                 }
             }
@@ -268,8 +301,11 @@ public class TableVertex {
             JSONObject row = excellevels.getJSONObject(i);
             newHierarchyName = row.getString(Model.HierarchyLevel.NEW_HIERARCHY_NAME.toString());
             String columnName = row.getString(Model.HierarchyLevel.column.toString());
-            if (allColumnMap.containsKey(columnName)) {
+            if (allTableColumnMap.containsKey(columnName.toLowerCase())) {
                 JSONObject retlevel = new JSONObject(row, Model.HierarchyLevel.getModelValueArray());
+                if (R.COMMENTS) {
+                    ModelUtil.setComments(row, retlevel);
+                }
                 logger.log(Level.FINEST, "Hierarchy {0} level: ", new Object[]{newHierarchyName, retlevel.toString()});
                 levels.put(retlevel);
                 ModelUtil.putErrorInfo(row, String.format("Level %1$s created for Hierarchy %2$s", columnName, newHierarchyName), Model.ExcelMetaData.__INFO.toString());
@@ -284,7 +320,7 @@ public class TableVertex {
             newHierarchyName = hierName;
         }
 
-        ModelsWrapper.getInstance().getModelRenameMap(this.modelName).put((this.logicalName + "." + hierName).toLowerCase(), newHierarchyName);
+        ModelsWrapper.getInstance().getModelRenameMap(this.modelName).put((this.logicalName + "." + newHierarchyName).toLowerCase(), newHierarchyName);
         JSONObject hierarchyObject = this.allHierarchyMap.get(hierName.toLowerCase());
         if (hierarchyObject == null) {
             logger.log(Level.FINEST, "Creating new Hierarchy {0} in table {1}: ", new Object[]{newHierarchyName, this.logicalName});
@@ -297,11 +333,11 @@ public class TableVertex {
         hierarchyObject.put("name", newHierarchyName);
         hierarchyObject.put("levels", levels);
         logger.log(Level.FINEST, "Hierarchy {0} has {1} levels", new Object[]{newHierarchyName, levels.length()});
-        this.allHierarchyMap.put(newHierarchyName, hierarchyObject);
+        this.allHierarchyMap.put(newHierarchyName.toLowerCase(), hierarchyObject);
 
     }
 
-    public JSONArray getExcelRenameArray() {
+    public JSONArray getExcelRenameArray(boolean onlyColumn) {
         JSONArray retList = new JSONArray();
         logger.log(Level.FINE, "Geting rename columns for table {}", new Object[]{this.logicalName});
         for (int j = 0; j < columns.length(); j++) {
@@ -311,7 +347,10 @@ public class TableVertex {
             JSONObject retColumn = new JSONObject(column, Model.RenameColumn.getStringValues());
             retColumn.put(Model.RenameColumn.PHYSICAL_COLUMN.toString(), sourceColumn);
             retColumn.put(Model.RenameColumn.COLUMN_NAME.toString(), columnName);
-            if (column.has("type") && column.getString("type").equalsIgnoreCase("calculated")) {
+            if (column.has("type") && column.getString("type").equalsIgnoreCase("calculated") ) {
+                if(onlyColumn){
+                    continue;
+                }
                 retColumn.put(Model.RenameColumn.COLUMN_TYPE.toString(), Model.ColumnType.CALCULATED_COLUMN.toString());
             } else {
                 retColumn.put(Model.RenameColumn.COLUMN_TYPE.toString(), Model.ColumnType.COLUMN.toString());
@@ -325,10 +364,13 @@ public class TableVertex {
             //retColumn.put(FileEnums.RenameColumn.NEW_TABLE_NAME.toString(), this.logicalName);
             retColumn.put(Model.RenameColumn.PHYSICAL_TABLE.toString(), this.dbName);
             retColumn.put(Model.RenameColumn.TABLE_NAME.toString(), this.logicalName);
+            if (R.COMMENTS) {
+                ModelUtil.setCommentsAnnotaion(column, retColumn);
+            }
             retList.put(retColumn);
         }
 
-        if (table.has("measures")) {
+        if (table.has("measures") && !onlyColumn) {
             logger.log(Level.FINE, "Geting rename measures for table {}", new Object[]{this.logicalName});
             JSONArray measures = table.getJSONArray("measures");
             for (int j = 0; j < measures.length(); j++) {
@@ -344,6 +386,9 @@ public class TableVertex {
                 retColumn.put(Model.RenameColumn.TABLE_NAME.toString(), this.logicalName);
                 if (measure.has(Model.RenameColumnExp.expression.toString())) {
                     retColumn.put(Model.RenameColumnExp.expression.toString(), measure.optString(Model.RenameColumnExp.expression.toString(), ""));
+                }
+                if (R.COMMENTS) {
+                    ModelUtil.setCommentsAnnotaion(measure, retColumn);
                 }
                 retList.put(retColumn);
             }

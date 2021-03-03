@@ -1,0 +1,1 @@
+java -cp ./lib/${project.build.finalName}.jar com.ja.ssas.tabular.util.SplitModel %*

@@ -27,7 +27,7 @@ import org.json.JSONObject;
  * @author Rishav
  */
 public class ExcelReadHelper {
-
+    
     static final Logger logger = LogCountHandler.getInstance().getLogger("ExcelReadHelper");
     
     private JSONArray _MODEL_NAMES = new JSONArray();
@@ -39,27 +39,39 @@ public class ExcelReadHelper {
     private JSONArray _RELATIONSHIPS = new JSONArray();
     private JSONArray _TABLE_SCHEMAS = new JSONArray();
     private final HashMap<String, JSONArray> relationMap = new HashMap<>();
+    private final HashMap<String, JSONArray> sheetMap = new HashMap<>();
     private final HashMap<String, JSONArray> derivedMap = new HashMap<>();
     private final HashMap<String, HashMap<String, HashMap<String, JSONArray>>> hierarchyMap = new HashMap<>();
     private final CommandLine cmd;
     private boolean hasMultipleRelSheet = false;
-
-    public ExcelReadHelper(File loc, CommandLine cmd) {
+    private String fileName;
+    
+    public ExcelReadHelper(File loc, CommandLine cmd, boolean readKey) {
         this.cmd = cmd;
-        ExcelReadUtil excelRead = new ExcelReadUtil(loc);
+        ExcelReadUtil excelRead = new ExcelReadUtil(loc, readKey);
+        if (cmd.hasOption("comments")) {
+            excelRead.setReadComment(true);
+        }
+        this.fileName = loc.getName();
         _MODEL_NAMES = excelRead.getSheetData(Model.ExcelSheets._MODEL_NAMES.toString(), Model.Models.class);
+        sheetMap.put(Model.ExcelSheets._MODEL_NAMES.toString(), _MODEL_NAMES);
         _RENAME_TABLES = excelRead.getSheetData(Model.ExcelSheets._RENAME_TABLES.toString(), Model.RenameTable.class);
+        sheetMap.put(Model.ExcelSheets._RENAME_TABLES.toString(), _RENAME_TABLES);
+        
         if (cmd.hasOption("alias")) {
             _ALIAS_TABLES = excelRead.getSheetData(Model.ExcelSheets._ALIAS_TABLES.toString(), Model.AliasTable.class);
+            sheetMap.put(Model.ExcelSheets._ALIAS_TABLES.toString(), _ALIAS_TABLES);
         }
         if (cmd.hasOption("schema")) {
             _TABLE_SCHEMAS = excelRead.getSheetData(Model.ExcelSheets._TABLE_SCHEMAS.toString(), Model.RenameSchema.class);
         }
         if (cmd.hasOption("hierarchy")) {
             _HIERARCHIES = excelRead.getSheetData(Model.ExcelSheets._HIERARCHIES.toString(), Model.HierarchyLevel.class);
+            sheetMap.put(Model.ExcelSheets._HIERARCHIES.toString(), _HIERARCHIES);
         }
         if (cmd.hasOption("derived")) {
             _DERIVED_COLUMNS = excelRead.getSheetData(Model.ExcelSheets._DERIVED_COLUMNS.toString(), Model.DerivedColumn.class);
+            sheetMap.put(Model.ExcelSheets._DERIVED_COLUMNS.toString(), _DERIVED_COLUMNS);
             for (int i = 0; i < _DERIVED_COLUMNS.length(); i++) {
                 JSONObject derivedColumn = _DERIVED_COLUMNS.getJSONObject(i);
                 String modelName = derivedColumn.getString(Model.DerivedColumn.MODEL_NAME.toString());
@@ -75,7 +87,7 @@ public class ExcelReadHelper {
         if (cmd.hasOption("relation")) {
             if (excelRead.haveSheet(Model.ExcelSheets._RELATIONSHIPS.toString())) {
                 _RELATIONSHIPS = excelRead.getSheetData(Model.ExcelSheets._RELATIONSHIPS.toString(), Model.AllRelation.class);
-
+                sheetMap.put(Model.ExcelSheets._RELATIONSHIPS.toString(), _RELATIONSHIPS);
                 for (int i = 0; i < _RELATIONSHIPS.length(); i++) {
                     JSONObject relation = _RELATIONSHIPS.getJSONObject(i);
                     String modelName = relation.getString(Model.AllRelation.MODEL_NAME.toString());
@@ -95,33 +107,46 @@ public class ExcelReadHelper {
                     relationMap.put(modelName, relations);
                 }
             }
-
+            
         }
-        if (cmd.hasOption("rename")) {
-            _RENAME_COLUMNS = excelRead.getSheetData(Model.ExcelSheets._RENAME_COLUMNS.toString(), Model.RenameColumn.class);
-        }     
-        
-        if (cmd.hasOption("schema")) {
-            _RENAME_COLUMNS = excelRead.getSheetData(Model.ExcelSheets._RENAME_COLUMNS.toString(), Model.RenameColumn.class);
-        }  
-    }
+        //if (cmd.hasOption("rename")) {
+        _RENAME_COLUMNS = excelRead.getSheetData(Model.ExcelSheets._RENAME_COLUMNS.toString(), Model.RenameColumn.class);
+        sheetMap.put(Model.ExcelSheets._RENAME_COLUMNS.toString(), _RENAME_COLUMNS);
+        //}
 
+        if (cmd.hasOption("schema")) {
+            _TABLE_SCHEMAS = excelRead.getSheetData(Model.ExcelSheets._TABLE_SCHEMAS.toString(), Model.RenameColumn.class);
+        }
+    }
+    
+    public ExcelReadHelper(File loc, CommandLine cmd) {
+        this(loc, cmd, false);
+    }
+    
+    public String getFileName() {
+        return fileName;
+    }
+    
     public JSONArray getModelNames() {
         return _MODEL_NAMES;
     }
-
+    
     public JSONArray getAliasTables() {
         return _ALIAS_TABLES;
     }
-
+    
     public HashMap<String, JSONArray> getDerivedColumns() {
         return derivedMap;
     }
-
+    
+    public HashMap<String, JSONArray> getSheetMap() {
+        return sheetMap;
+    }
+    
     public JSONArray getRenameTable() {
         return _RENAME_TABLES;
     }
-
+    
     public JSONArray getRenameColumn() {
         return _RENAME_COLUMNS;
     }
@@ -131,17 +156,17 @@ public class ExcelReadHelper {
     }
     
     public JSONArray setTableSchema(JSONArray schemaArray) {
-        return this._TABLE_SCHEMAS=schemaArray;
+        return this._TABLE_SCHEMAS = schemaArray;
     }
-
+    
     public JSONArray getRelationForModel(String model) {
         return relationMap.get(model);
     }
-
+    
     public HashMap<String, JSONArray> getRelationForAllModel() {
         return relationMap;
     }
-
+    
     public HashMap<String, HashMap<String, HashMap<String, JSONArray>>> getHierarchiesForAllModel() {
         for (int i = 0; i < _HIERARCHIES.length(); i++) {
             JSONObject row = _HIERARCHIES.getJSONObject(i);
@@ -168,7 +193,7 @@ public class ExcelReadHelper {
         }
         return hierarchyMap;
     }
-
+    
     public void writeStatusExcel(File loc) {
         if (cmd.hasOption("excel")) {
             String inputExcelFile = cmd.getOptionValue("excel");
@@ -180,7 +205,7 @@ public class ExcelReadHelper {
             if (parent == null) {
                 parent = ".";
             }
-
+            
             String excelName = loc.getAbsolutePath() + File.separator + "STATUS_" + excelFile.getName();
             ExcelWriteUtil r = new ExcelWriteUtil(excelName);
             int excelSheetPlace = 0;
@@ -190,18 +215,22 @@ public class ExcelReadHelper {
             r.writeSheet(Model.ExcelSheets._DERIVED_COLUMNS.toString(), excelSheetPlace++, _DERIVED_COLUMNS, Model.DerivedColumn.class);
             r.writeSheet(Model.ExcelSheets._RENAME_TABLES.toString(), excelSheetPlace++, _RENAME_TABLES, Model.RenameTable.class);
             
-            if(_RENAME_COLUMNS.isEmpty()){
-                _RENAME_COLUMNS=ModelsWrapper.getInstance().getExcelRenameArray();
+            if (_RENAME_COLUMNS.isEmpty()) {
+                boolean onlyColumn = true;
+                if (cmd.hasOption("lineage")) {
+                    onlyColumn = false;
+                }
+                _RENAME_COLUMNS = ModelsWrapper.getInstance().getExcelRenameArray(onlyColumn);
             }
             r.writeSheet(Model.ExcelSheets._RENAME_COLUMNS.toString(), excelSheetPlace++, _RENAME_COLUMNS, Model.RenameColumn.class);
-
+            
             if (cmd.hasOption("multiple")) {
                 for (Map.Entry<String, JSONArray> entry : relationMap.entrySet()) {
                     String modelName = entry.getKey();
                     JSONArray sheetData = entry.getValue();
                     r.writeSheet(modelName, excelSheetPlace++, sheetData, Model.Relation.class);
                 }
-
+                
             } else {
                 if (_RELATIONSHIPS.isEmpty()) {
                     relationMap.entrySet().forEach((entry) -> {
@@ -215,22 +244,22 @@ public class ExcelReadHelper {
                     });
                 }
                 r.writeSheet(Model.ExcelSheets._RELATIONSHIPS.toString(), excelSheetPlace++, _RELATIONSHIPS, Model.AllRelation.class);
-
+                
             }
-            r.writeSheet(Model.ExcelSheets._TABLE_SCHEMAS.toString(), excelSheetPlace++, this._TABLE_SCHEMAS, Model.TableSchema.class);
+            //r.writeSheet(Model.ExcelSheets._TABLE_SCHEMAS.toString(), excelSheetPlace++, this._TABLE_SCHEMAS, Model.TableSchema.class);
             r.close();
         }
     }
     
     public void writeLineageExcel(File locFolder, JSONArray lineageArray) {
-         if (cmd.hasOption("excel")) {
+        if (cmd.hasOption("excel")) {
             String inputExcelFile = cmd.getOptionValue("excel");
             File excelFile = new File(inputExcelFile);
             if (!excelFile.exists()) {
                 logger.log(Level.SEVERE, "Config Excel file doesn't exist : {0}", excelFile.getAbsolutePath());
             }
             String xlsName = excelFile.getName();
-            if(!xlsName.endsWith(".xls")){
+            if (!xlsName.endsWith(".xls")) {
                 xlsName = xlsName + ".xls";
             }
             String excelName = locFolder.getAbsolutePath() + File.separator + "LINEAGE_" + xlsName;
@@ -238,8 +267,9 @@ public class ExcelReadHelper {
             int excelSheetPlace = 0;
             r.writeSheet("Lineage", excelSheetPlace, lineageArray, Model.LineageColumn.class);
             r.close();
-         }
+        }
     }
+    
     public void writeMergedExcel() {
         if (cmd.hasOption("excel")) {
             String inputExcelFile = cmd.getOptionValue("excel");
@@ -258,14 +288,14 @@ public class ExcelReadHelper {
             Set<String> newModels = new HashSet<>();
             for (int i = 0; i < _MODEL_NAMES.length(); i++) {
                 JSONObject row = _MODEL_NAMES.getJSONObject(i);
-                String fromModel=row.getString(Model.Models.MODEL_NAME.toString());
-                String toModel=row.optString(Model.Models.MODEL_MERGE_NAME.toString(),fromModel);
+                String fromModel = row.getString(Model.Models.MODEL_NAME.toString());
+                String toModel = row.optString(Model.Models.MODEL_MERGE_NAME.toString(), fromModel);
                 
                 newModels.add(toModel);
-                modelRename.put(fromModel, toModel);                
+                modelRename.put(fromModel, toModel);
             }
             JSONArray _MODEL_NAMES_NEW = new JSONArray();
-            for(String model : newModels){
+            for (String model : newModels) {
                 JSONObject m = new JSONObject();
                 m.put(Model.Models.MODEL_NAME.toString(), model);
                 _MODEL_NAMES_NEW.put(m);
@@ -282,5 +312,5 @@ public class ExcelReadHelper {
             r.close();
         }
     }
-
+    
 }

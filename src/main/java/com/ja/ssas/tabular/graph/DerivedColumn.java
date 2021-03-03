@@ -22,11 +22,13 @@ public class DerivedColumn {
 
     private final String type;
     private final String name;
+    private final String tableName;
 
-    public DerivedColumn(JSONObject column, String type, String name) {
+    public DerivedColumn(JSONObject column, String type, String name, String tableName) {
         this.column = column;
         this.type = type;
         this.name = name;
+        this.tableName = tableName;
     }
 
     public JSONObject getColumn() {
@@ -39,6 +41,10 @@ public class DerivedColumn {
 
     public String getName() {
         return name;
+    }
+    
+    public String getTableName() {
+        return tableName;
     }
 
     public void setColumn(JSONObject eColumn) {

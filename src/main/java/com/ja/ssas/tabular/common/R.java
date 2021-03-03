@@ -10,10 +10,13 @@ import java.util.Map;
 
 /**
  *
- * @author venris
+ * @author rishav.sharma
  */
 public class R {
     private static Map<String, String> propMap = new HashMap<>();
+    public static int NO_OF_THREADS = 2;
+    public static boolean COMMENTS = false;
+    public static boolean UPDATE_AS_NEW = false;
     static {
         
     }

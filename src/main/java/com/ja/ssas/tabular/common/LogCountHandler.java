@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author venris
+ * @author rishav.sharma
  */
 public class LogCountHandler extends Handler {
 

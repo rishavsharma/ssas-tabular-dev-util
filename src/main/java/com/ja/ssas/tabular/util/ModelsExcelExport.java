@@ -8,6 +8,7 @@ package com.ja.ssas.tabular.util;
 import com.ja.ssas.tabular.common.ExcelWriteUtil;
 import com.ja.ssas.tabular.common.LogCountHandler;
 import com.ja.ssas.tabular.common.Model;
+import com.ja.ssas.tabular.common.R;
 import com.ja.ssas.tabular.graph.ModelsWrapper;
 import java.io.File;
 import java.util.logging.Level;
@@ -51,18 +52,22 @@ public class ModelsExcelExport {
         options.addOption("h", "hierarchy", false, "export hierarchy Columns to excel");
         options.addOption("o", "output", true, "folder where output would be writen");
         options.addOption("e", "excel", true, "name of the excel file, don't put path here. use -o for folder");
-        options.addOption("m", "multiple", false, "generate model relationships in multiple sheets");
-        options.addOption("f", "schema", false, "generate model table schema mapping");
+        //options.addOption("m", "multiple", false, "generate model relationships in multiple sheets");
+        //options.addOption("f", "schema", false, "generate model table schema mapping");
         options.addOption("l", "lineage", false, "Generate lineage");
+        options.addOption("x", "comments", false, "Write Comments");
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         formatter.setOptionComparator(null);
         CommandLine cmd;
         try {
             cmd = parser.parse(options, args);
+            if (cmd.hasOption("comments")) {
+                R.COMMENTS = true;
+            }
             String inputFileFolderPath = cmd.getOptionValue("input");
             File file = new File(inputFileFolderPath);
-            File[] listFiles = null;
+            File[] listFiles ;
             if (file.isDirectory()) {
                 listFiles = file.listFiles((File dir, String name) -> name.toLowerCase().endsWith(".bim"));
             } else {
@@ -94,30 +99,35 @@ public class ModelsExcelExport {
             }
 
             int excelSheetPlace = 0;
-
+            
             ExcelWriteUtil r = new ExcelWriteUtil(outFileDir.getAbsolutePath() + File.separator + excelFileName);
             r.writeSheet(Model.ExcelSheets._MODEL_NAMES.toString(), excelSheetPlace++, modelWrapper.getExcelModelsArray(), Model.Models.class);
+            
             if (cmd.hasOption("alias")) {
-                logger.log(Level.INFO, "Exporting aliases..");
+                logger.log(Level.FINE, "Exporting aliases..");
                 r.writeSheet(Model.ExcelSheets._ALIAS_TABLES.toString(), excelSheetPlace++, modelWrapper.getExcelAliasArray(), Model.AliasTable.class);
             }
             if (cmd.hasOption("hierarchy")) {
-                logger.log(Level.INFO, "Exporting hierarchies..");
+                logger.log(Level.FINE, "Exporting hierarchies..");
                 JSONArray hierarchies = modelWrapper.getExcelHierarchiesArray();
                 r.writeSheet(Model.ExcelSheets._HIERARCHIES.toString(), excelSheetPlace++, hierarchies, Model.HierarchyLevel.class);
             }
             if (cmd.hasOption("derived")) {
-                logger.log(Level.INFO, "Exporting derived columns..");
+                logger.log(Level.FINE, "Exporting derived columns..");
                 r.writeSheet(Model.ExcelSheets._DERIVED_COLUMNS.toString(), excelSheetPlace++, modelWrapper.getExcelDerivedColumnArray(), Model.DerivedColumn.class);
             }
-            logger.log(Level.INFO, "Exporting table list..");
+            logger.log(Level.FINE, "Exporting table list..");
             r.writeSheet(Model.ExcelSheets._RENAME_TABLES.toString(), excelSheetPlace++, modelWrapper.getExcelRenameTableArray(), Model.RenameTable.class);
             if (cmd.hasOption("rename")) {
-                logger.log(Level.INFO, "Exporting renaming columns..");
-                r.writeSheet(Model.ExcelSheets._RENAME_COLUMNS.toString(), excelSheetPlace++, modelWrapper.getExcelRenameArray(), Model.RenameColumnExp.class);
+                logger.log(Level.FINE, "Exporting renaming columns..");
+                boolean onlyColumn = true;
+                if (cmd.hasOption("lineage")) {
+                    onlyColumn = false;
+                }
+                r.writeSheet(Model.ExcelSheets._RENAME_COLUMNS.toString(), excelSheetPlace++, modelWrapper.getExcelRenameArray(onlyColumn), Model.RenameColumnExp.class);
             }
             if (cmd.hasOption("relation")) {
-                logger.log(Level.INFO, "Exporting relationships..");
+                logger.log(Level.FINE, "Exporting relationships..");
                 if (cmd.hasOption("multiple")) {
                     JSONArray models = modelWrapper.getExcelModelsArray();
                     for (int i = 0; i < models.length(); i++) {
@@ -144,7 +154,7 @@ public class ModelsExcelExport {
                 }
             }
             if (cmd.hasOption("schema")) {
-                logger.log(Level.INFO, "Exporting table schemas..");
+                logger.log(Level.FINE, "Exporting table schemas..");
                 JSONArray excelTableSchema = new JSONArray();
                 modelWrapper.getAllModels().forEach((model) -> {
                     model.vertexSet().forEach((table) -> {
@@ -177,8 +187,8 @@ public class ModelsExcelExport {
                 rr.close();
             }
             r.close();
-            logger.log(Level.INFO, "Writing files to:{0}", outFileDir.getAbsolutePath());
-            logger.log(Level.INFO, "Name of excel file:{0}", outFileDir.getAbsolutePath() + File.separator + excelFileName);
+            logger.log(Level.FINE, "Writing files to:{0}", outFileDir.getAbsolutePath());
+            logger.log(Level.FINE, "Name of excel file:{0}", outFileDir.getAbsolutePath() + File.separator + excelFileName);
 
         } catch (ParseException e) {
             System.out.println(e.getMessage());
