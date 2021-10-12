@@ -65,7 +65,7 @@ public class ExcelConfigDiff {
         options.addRequiredOption("i", "action", true, "diff | merge");
         options.addOption("o", "output", true, "output directory for results");
         options.addOption("c", "conflicts", false, "Export only the conflicts");
-        options.addOption("x", "comments", false, "Write Comments");
+        options.addOption("y", "comments", false, "Write Comments");
         options.addOption("u", "updated", false, "Updated record as new row");
         options.addOption("p", "threads", true, "Number of threads spawn 1 is default any valye from 2 to number of cores in the system");
         

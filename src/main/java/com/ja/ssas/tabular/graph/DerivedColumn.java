@@ -9,6 +9,7 @@ import com.ja.ssas.tabular.common.LogCountHandler;
 import com.ja.ssas.tabular.common.Model;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -42,9 +43,26 @@ public class DerivedColumn {
     public String getName() {
         return name;
     }
-    
+
     public String getTableName() {
         return tableName;
+    }
+
+    public String getExpression() {
+        String retValue = "";
+        Object expression = column.get(Model.DerivedColumn.expression.toString());
+        if (expression instanceof JSONArray) {
+            JSONArray expAr = (JSONArray) expression;
+            StringBuilder sb = new StringBuilder();
+            expAr.toList().forEach((exp) -> {
+                sb.append(exp).append("\r\n");
+            });
+            retValue = sb.toString();
+        } else {
+            retValue = column.getString(Model.DerivedColumn.expression.toString());
+        }
+
+        return retValue;
     }
 
     public void setColumn(JSONObject eColumn) {
@@ -52,7 +70,7 @@ public class DerivedColumn {
             if (eColumn.has(key)) {
                 Object value = eColumn.get(key);
                 column.put(key, value);
-                logger.log(Level.FINEST, "Setting value for column {0} key {1}:{2}",new Object[]{name,key,value.toString()});
+                logger.log(Level.FINEST, "Setting value for column {0} key {1}:{2}", new Object[]{name, key, value.toString()});
             }
         }
 

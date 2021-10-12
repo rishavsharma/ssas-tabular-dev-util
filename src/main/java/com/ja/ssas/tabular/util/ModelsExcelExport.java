@@ -50,12 +50,13 @@ public class ModelsExcelExport {
         options.addOption("a", "alias", false, "export aliases to excel");
         options.addOption("d", "derived", false, "export derived Columns to excel");
         options.addOption("h", "hierarchy", false, "export hierarchy Columns to excel");
+        options.addOption("p", "perspectives", false, "export perspectives");
         options.addOption("o", "output", true, "folder where output would be writen");
         options.addOption("e", "excel", true, "name of the excel file, don't put path here. use -o for folder");
         //options.addOption("m", "multiple", false, "generate model relationships in multiple sheets");
         //options.addOption("f", "schema", false, "generate model table schema mapping");
         options.addOption("l", "lineage", false, "Generate lineage");
-        options.addOption("x", "comments", false, "Write Comments");
+        options.addOption("y", "comments", false, "Write Comments");
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         formatter.setOptionComparator(null);
@@ -153,13 +154,27 @@ public class ModelsExcelExport {
                     r.writeSheet(Model.ExcelSheets._RELATIONSHIPS.toString(), excelSheetPlace++, excelRelations, Model.AllRelation.class);
                 }
             }
+            if (cmd.hasOption("perspectives")) {
+                logger.log(Level.FINE, "Exporting perspectives..");
+                JSONArray excelPerspectives = new JSONArray();
+                modelWrapper.getAllModels().forEach((model) -> {
+//                    JSONObject retColumn = new JSONObject();
+//                        retColumn.put(Model.TableSchema.MODEL_NAME.toString(), model.getName());
+//                        retColumn.put(Model.TableSchema.PHYSICAL_TABLE.toString(), table.getDbName());
+//                        retColumn.put(Model.TableSchema.TABLE_NAME.toString(), table.getLogicalName());
+//                        retColumn.put(Model.TableSchema.SCHEMA_NAME.toString(), table.getSchemaName());
+//                        excelPerspectives.put(retColumn);
+                });
+
+                r.writeSheet(Model.ExcelSheets._PERSPECTIVES.toString(), excelSheetPlace++, excelPerspectives, Model.Perspectives.class);
+            }
             if (cmd.hasOption("schema")) {
                 logger.log(Level.FINE, "Exporting table schemas..");
                 JSONArray excelTableSchema = new JSONArray();
                 modelWrapper.getAllModels().forEach((model) -> {
                     model.vertexSet().forEach((table) -> {
                         JSONObject retColumn = new JSONObject();
-                        retColumn.put(Model.TableSchema.MODEL_NAME.toString(), model.getName());
+                        retColumn.put(Model.TableSchema.MODEL_NAME.toString(), model.getModelName());
                         retColumn.put(Model.TableSchema.PHYSICAL_TABLE.toString(), table.getDbName());
                         retColumn.put(Model.TableSchema.TABLE_NAME.toString(), table.getLogicalName());
                         retColumn.put(Model.TableSchema.SCHEMA_NAME.toString(), table.getSchemaName());
@@ -197,6 +212,7 @@ public class ModelsExcelExport {
         } catch (Exception e) {
             logger.log(Level.SEVERE, e.getMessage(), e);
             formatter.printHelp("ModelsExcelExport", options);
+            e.printStackTrace();
             System.exit(1);
         }
     }

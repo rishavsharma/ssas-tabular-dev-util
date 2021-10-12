@@ -17,6 +17,7 @@ public class R {
     public static int NO_OF_THREADS = 2;
     public static boolean COMMENTS = false;
     public static boolean UPDATE_AS_NEW = false;
+    public static boolean OVERWRITE_TABLES = false;
     static {
         
     }

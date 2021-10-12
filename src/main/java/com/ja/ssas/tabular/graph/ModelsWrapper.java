@@ -98,8 +98,8 @@ public class ModelsWrapper {
             return null;
         }
         ModelGraph retModel = modelsMap.values().iterator().next().getblankGraph();
-        retModel.setName("ALL_IN_ONE");
-        logger.log(Level.FINE, "Creating blank model from {0}", retModel.getName());
+        retModel.setModelName("ALL_IN_ONE");
+        logger.log(Level.FINE, "Creating blank model from {0}", retModel.getModelName());
         logger.log(Level.FINE, "Getting all in one model {0}", "AllInOne");
         modelsMap.entrySet().stream().map((entry) -> entry.getValue()).forEachOrdered((graphModel) -> {
             graphModel.edgeSet().forEach((edge) -> {
@@ -117,8 +117,8 @@ public class ModelsWrapper {
             return null;
         }
         ModelGraph retModel = modelsMap.values().iterator().next().getblankGraph();
-        retModel.setName("ALL_IN_ONE");
-        logger.log(Level.FINE, "Creating blank model from {0}", retModel.getName());
+        retModel.setModelName("ALL_IN_ONE");
+        logger.log(Level.FINE, "Creating blank model from {0}", retModel.getModelName());
         logger.log(Level.FINE, "Getting all in one model {0}", "AllInOne");
         modelsMap.entrySet().stream().map((entry) -> entry.getValue()).forEachOrdered((graphModel) -> {
             graphModel.edgeSet().forEach((edge) -> {
@@ -133,7 +133,7 @@ public class ModelsWrapper {
     public JSONArray getExcelDerivedColumnArray() {
         JSONArray retList = new JSONArray();
         modelsMap.values().forEach((model) -> {
-            logger.log(Level.FINE, "Getting derived column for model {0}", model.getName());
+            logger.log(Level.FINE, "Getting derived column for model {0}", model.getModelName());
             model.vertexSet().forEach((table) -> {
                 table.getExcelDerivedArray().forEach((row) -> {
                     retList.put(row);
@@ -161,7 +161,7 @@ public class ModelsWrapper {
                         modelGraph.setExcelDerivedColumn(tableName, derived);
                     }
                     logger.log(Level.FINE, "Finished setting derived column for model {0}", modelName);
-                    return modelGraph.getName();
+                    return modelGraph.getModelName();
                 };
                 tasksList.add(callableTask1);
 
@@ -230,7 +230,7 @@ public class ModelsWrapper {
     public JSONArray getExcelHierarchiesArray() {
         JSONArray retList = new JSONArray();
         modelsMap.values().forEach((model) -> {
-            logger.log(Level.FINE, "Getting hierarchies for model {0}", model.getName());
+            logger.log(Level.FINE, "Getting hierarchies for model {0}", model.getModelName());
             JSONArray excelHierarchiesArray = model.getExcelHierarchiesArray();
             for (int i = 0; i < excelHierarchiesArray.length(); i++) {
                 JSONObject row = excelHierarchiesArray.getJSONObject(i);
@@ -291,8 +291,8 @@ public class ModelsWrapper {
             theDir.mkdir();
         }
         modelsMap.values().forEach((model) -> {
-            String outFile = theDir.getAbsolutePath() + File.separator + model.getName() + ".bim";
-            logger.log(Level.FINE, "Writing model {0} to file:{1}", new Object[]{model.getName(), outFile});
+            String outFile = theDir.getAbsolutePath() + File.separator + model.getModelName() + ".bim";
+            logger.log(Level.FINE, "Writing model {0} to file:{1}", new Object[]{model.getModelName(), outFile});
             try {
                 model.writer(outFile);
             } catch (FileNotFoundException ex) {
@@ -306,12 +306,12 @@ public class ModelsWrapper {
             theDir.mkdir();
         }
         modelsMap.values().forEach((model) -> {
-            String outFile = theDir.getAbsolutePath() + File.separator + model.getName() + ".xmla";
+            String outFile = theDir.getAbsolutePath() + File.separator + model.getModelName() + ".xmla";
             String prefix = System.getenv("MODEL_PREFIX");
             if (prefix == null) {
                 prefix = "";
             }
-            logger.log(Level.FINE, "Writing model script {0} to file:{1}", new Object[]{model.getName(), outFile});
+            logger.log(Level.FINE, "Writing model script {0} to file:{1}", new Object[]{model.getModelName(), outFile});
             try {
                 model.scriptWriter(outFile, prefix);
             } catch (FileNotFoundException ex) {
@@ -331,7 +331,7 @@ public class ModelsWrapper {
                 String tableName = tableVertex.getLogicalName();
                 logger.log(Level.FINE, "For model {0} get table {1}", new Object[]{modelName, tableName});
                 String tablePhysical = tableVertex.getDbName();
-                JSONObject retTable = new JSONObject();
+                JSONObject retTable = new JSONObject(tableVertex.getTable(),Model.RenameTable.getStringValues());
                 retTable.put(Model.RenameTable.MODEL_NAME.toString(), modelName);
                 //retTable.put(FileEnums.RenameTable.PARENT_TABLE.toString(), tableName);
                 retTable.put(Model.RenameTable.NEW_TABLE_NAME.toString(), tableName);
@@ -358,7 +358,7 @@ public class ModelsWrapper {
     public JSONArray getExcelRenameArray(boolean onlyColumn) {
         JSONArray retList = new JSONArray();
         modelsMap.values().forEach((model) -> {
-            logger.log(Level.FINE, "Getting rename column array for model {0}", model.getName());
+            logger.log(Level.FINE, "Getting rename column array for model {0}", model.getModelName());
             model.vertexSet().forEach((table) -> {
                 logger.log(Level.FINE, "Getting rename column array for table {0}", table.getLogicalName());
                 table.getExcelRenameArray(onlyColumn).forEach((row) -> {
@@ -384,18 +384,29 @@ public class ModelsWrapper {
             String tableName = row.getString(Model.RenameTable.TABLE_NAME.toString());
             //String tableType = row.getString(Model.RenameTable.TABLE_TYPE.toString());
             String renameTable = row.getString(Model.RenameTable.NEW_TABLE_NAME.toString());
-            String dataCategory = row.optString(Model.RenameTable.dataCategory.toString());
-            String isHidden = row.optString(Model.RenameTable.isHidden.toString());
-            String description = row.optString(Model.RenameTable.description.toString());
+//            String dataCategory = row.optString(Model.RenameTable.dataCategory.toString());
+//            String isHidden = row.optString(Model.RenameTable.isHidden.toString());
+//            String description = row.optString(Model.RenameTable.description.toString());
             String tableKey = ("'" + tableName + "'").toLowerCase();
             if (!doRename) {
                 renameTable = tableName;
             }
             tablecolExp.put(tableName.toLowerCase(), renameTable);
             tablecolExp.put(tableKey, "'" + renameTable + "'");
-            tablecolExp.put(tableName.toLowerCase() + "#dataCategory", dataCategory);
-            tablecolExp.put(tableName.toLowerCase() + "#isHidden", isHidden);
-            tablecolExp.put(tableName.toLowerCase() + "#description", description);
+//            tablecolExp.put(tableName.toLowerCase() + "#dataCategory", dataCategory);
+//            tablecolExp.put(tableName.toLowerCase() + "#isHidden", isHidden);
+//            tablecolExp.put(tableName.toLowerCase() + "#description", description);
+            String tabKey = tableName.toLowerCase();
+                        
+            row.keySet().forEach((String key) -> {
+                if (Model.RenameTable.getModelValues().contains(key)) {
+                    Object val = row.get(key);
+                    if (val != null && !val.toString().equals("")) {
+                        tablecolExp.put(tabKey + "#" + key, val.toString());
+                    }
+
+                }
+            });
 
         }
 
@@ -468,10 +479,10 @@ public class ModelsWrapper {
         //ExecutorService executor = Executors.newFixedThreadPool(R.NO_OF_THREADS);
         List<Callable<String>> tasksList = new ArrayList<>();
         modelsMap.values().forEach((model) -> {
-            HashMap<String, String> reMap = renameMap.get(model.getName());
+            HashMap<String, String> reMap = renameMap.get(model.getModelName());
             Callable<String> callableTask = () -> {
                 model.renameModel(reMap, doRename);
-                return model.getName();
+                return model.getModelName();
             };
             tasksList.add(callableTask);
 
@@ -495,7 +506,7 @@ public class ModelsWrapper {
             if (newModelName != null && !newModelName.equals("")) {
                 ModelGraph gModel = modelsMap.get(modelName);
                 if (gModel != null) {
-                    gModel.setName(newModelName);
+                    gModel.setModelName(newModelName);
                 }
             }
 

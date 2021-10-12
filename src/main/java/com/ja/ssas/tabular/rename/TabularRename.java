@@ -13,6 +13,7 @@ import com.ja.ssas.tabular.common.R;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
@@ -79,9 +80,9 @@ public class TabularRename {
             String tableName = table.getString("name");
             String tableKey = tableName.toLowerCase();
             String renameTable = tablecolExp.get(tableKey);
-            String dataCategory = tablecolExp.get(tableKey + "#dataCategory");
-            String isHidden = tablecolExp.get(tableKey + "#isHidden");
-            String description = tablecolExp.get(tableKey + "#description");
+//            String dataCategory = tablecolExp.get(tableKey + "#dataCategory");
+//            String isHidden = tablecolExp.get(tableKey + "#isHidden");
+//            String description = tablecolExp.get(tableKey + "#description");
             logger.log(Level.FINE, "Changing name of table:[{0}] to:[{1}]", new Object[]{tableName, renameTable});
             if (renameTable != null) {
                 if (this.doRename) {
@@ -90,20 +91,27 @@ public class TabularRename {
             } else {
                 logger.log(Level.WARNING, "Rename table name is null for table:[{0}] to:[{1}]", new Object[]{tableName, renameTable});
             }
-            if (dataCategory != null) {
-                logger.log(Level.FINEST, "Renaming table:[{0}] adding dataCategory to :[{1}]", new Object[]{tableName, dataCategory});
-                table.put("dataCategory", dataCategory);
-            }
+//            if (dataCategory != null) {
+//                logger.log(Level.FINEST, "Renaming table:[{0}] adding dataCategory to :[{1}]", new Object[]{tableName, dataCategory});
+//                table.put("dataCategory", dataCategory);
+//            }
+//
+//            if (isHidden != null) {
+//                logger.log(Level.FINEST, "Renaming table:[{0}] adding isHidden to :[{1}]", new Object[]{tableName, isHidden});
+//                setValue(table, "isHidden", isHidden);
+//            }
+//
+//            if (description != null) {
+//                logger.log(Level.FINEST, "Renaming table:[{0}] adding description to :[{1}]", new Object[]{tableName, description});
+//                table.put("description", description);
+//            }
 
-            if (isHidden != null) {
-                logger.log(Level.FINEST, "Renaming table:[{0}] adding isHidden to :[{1}]", new Object[]{tableName, isHidden});
-                setValue(table, "isHidden", isHidden);
-            }
-
-            if (description != null) {
-                logger.log(Level.FINEST, "Renaming table:[{0}] adding description to :[{1}]", new Object[]{tableName, description});
-                table.put("description", description);
-            }
+            Model.RenameTable.getModelValues().forEach((key) -> {
+                String modelValue = tablecolExp.get(tableKey + "#" + key);
+                if (modelValue != null) {
+                    setValue(table, key, modelValue);
+                }
+            });
         }
     }
 
@@ -117,12 +125,12 @@ public class TabularRename {
             JSONArray columns = table.getJSONArray("columns");
             for (int j = 0; j < columns.length(); j++) {
                 JSONObject column = columns.getJSONObject(j);
-                
+
                 String columnName = column.getString("name");
                 String newColumnName = columnName;
                 String key = (tableName + "#" + columnName).toLowerCase();
-                if(R.COMMENTS){
-                    String comments = tablecolExp.getOrDefault(key+"#"+commentKey, "");
+                if (R.COMMENTS) {
+                    String comments = tablecolExp.getOrDefault(key + "#" + commentKey, "");
                     ModelUtil.setComments(column, comments);
                 }
                 if (!column.has("isNameInferred")) {
@@ -482,14 +490,17 @@ public class TabularRename {
             // it's an array
             JSONArray expressionArray = (JSONArray) expression;
             List<Object> val = expressionArray.toList();
-            ArrayList<String> newExpArray = new ArrayList<>();
+            //ArrayList<String> newExpArray = new ArrayList<>();
+            StringBuilder sb = new StringBuilder();
             for (int k = 0; k < val.size(); ++k) {
                 String exp = (String) val.get(k);
-                exp = replaceExpression(exp, localMap, tableName, columnName);
-                newExpArray.add(exp);
+                sb.append(exp).append(" ");
+//                exp = replaceExpression(exp, localMap, tableName, columnName);
+//                newExpArray.add(exp);
             }
-            expressionArray = new JSONArray(newExpArray);
-            column.put(key, expressionArray);
+            //expressionArray = new JSONArray(newExpArray);
+            String exp = replaceExpression(sb.toString(), localMap, tableName, columnName);
+            column.put(key, exp);
         } else {
             String exp = (String) expression;
             exp = replaceExpression(exp, localMap, tableName, columnName);
@@ -541,16 +552,21 @@ public class TabularRename {
             } else {
                 if (measureMap.containsKey(b.toLowerCase().trim())) {
                     logger.log(Level.FINE, "Found Measure for table [{0}] calculated column [{1}]:[{2}]", new Object[]{tableName, columnName, b});
-                } else {
-                    logger.log(Level.WARNING, "Not Found Local for [{0}] calculated column [{1}]:[{2}]", new Object[]{tableName, columnName, b});
+                } else {                    
+                    String expColumn = b.replaceAll("[\\[\\]]", "\"");
+                    if (!exp.contains(expColumn)) {
+                        logger.log(Level.WARNING, "Not Found Local for [{0}] calculated column [{1}]:[{2}]", new Object[]{tableName, columnName, b});
+                    }
                 }
 
             }
         }
+
         m.appendTail(sb);
         // check with tables names
         m = pTable.matcher(sb.toString());
         sb = new StringBuffer();
+
         while (m.find()) {
             String b = m.group();
             logger.log(Level.FINE, "Matched Table Name:[{0}]", b);
@@ -568,9 +584,12 @@ public class TabularRename {
                 logger.log(Level.WARNING, "Not Found for table name [{0}] calculated column [{1}]:[{2}]", new Object[]{tableName, columnName, b});
             }
         }
+
         m.appendTail(sb);
         exp = sb.toString();
-        logger.log(Level.FINE, "Final Expression:[{0}]", exp);
+
+        logger.log(Level.FINE,
+                "Final Expression:[{0}]", exp);
         return exp;
     }
 }

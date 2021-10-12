@@ -104,14 +104,18 @@ public class ConfigDiffMerge {
         }
         return returnval;
     }
-    
+
     public static JSONArray getMergeArray(JSONArray master, List<JSONArray> diffFeatures, Class<? extends Enum> sheetColumn, boolean emitConflicts) {
         Enum[] colVal = sheetColumn.getEnumConstants();
         JSONArray returnval = new JSONArray();
         HashMap<String, List<JSONObject>> conflicts = new HashMap<>();
         HashMap<String, JSONObject> dirtyChangeRow = new HashMap<>();
         HashMap<String, JSONObject> masterMap = new HashMap<>();
-
+        for (int i = 0; i < master.length(); i++) {
+            JSONObject val = master.getJSONObject(i);
+            String rowKey = val.optString(Model.ExcelMetaData.__KEY.toString(), "");
+            masterMap.put(rowKey, val);
+        }
         for (JSONArray diffArray : diffFeatures) {
             for (int i = 0; i < diffArray.length(); i++) {
                 JSONObject row = diffArray.getJSONObject(i);
@@ -125,7 +129,8 @@ public class ConfigDiffMerge {
                         if (op.equals(Model.MergeMetaData.__DELETE)) {
                             dirtyChangeRow.put(rowKey, row);
                         } else {
-                            if (isEqualJSONObject(row, exitingChange, sheetColumn)) {
+                            JSONObject masterRow = masterMap.get(rowKey);
+                            if (threeWayMerge(masterRow, row, exitingChange, sheetColumn)) {
                                 dirtyChangeRow.put(rowKey, row);
                             } else {
                                 List<JSONObject> conflict = conflicts.get(rowKey);
@@ -226,6 +231,41 @@ public class ConfigDiffMerge {
         if (!retVal) {
             src.put(Model.ExcelMetaData.__DIFF.toString(), formatingObject);
             tgt.put(Model.ExcelMetaData.__DIFF.toString(), formatingObject);
+        }
+        return retVal;
+    }
+
+    public static boolean threeWayMerge(JSONObject master, JSONObject row, JSONObject existingChange, Class<? extends Enum> sheetColumn) {
+        Enum[] colVal = sheetColumn.getEnumConstants();
+        JSONObject formatingObject = new JSONObject();
+        boolean retVal = true, mergeRow=false;
+        
+        for (Enum enum1 : colVal) {
+            String key = enum1.toString();
+            String rowColVal = row.optString(key, "");
+            String existingColVal = existingChange.optString(key, "");
+            if (!rowColVal.equals(existingColVal)) {
+                String masterColVal = master.optString(key, "");
+                if (masterColVal.equals(existingColVal)) {
+                    formatingObject.put(key, master.optString(key, ""));
+                } else if (masterColVal.equals(rowColVal)) {
+                    formatingObject.put(key, master.optString(key, ""));
+                    
+                    row.put(key, existingColVal);   
+                    mergeRow = true;
+                } else {
+                    formatingObject.put(key, existingChange.optString(key, ""));
+                    retVal = false;
+                }
+            }
+        }
+        row.put(Model.ExcelMetaData.__DIFF.toString(), formatingObject);
+        //existingChange.put(Model.ExcelMetaData.__DIFF.toString(), formatingObject);
+        if(mergeRow){
+            String work2 = existingChange.optString(Model.ExcelMetaData.__WORKBOOK_NAME.toString(), "");
+            String work2row = existingChange.optString(Model.ExcelMetaData.__ROWNUM.toString(), "");
+            String rowComment = row.optString(Model.MergeMetaData.__ROWCOMENT.toString(),"");
+            row.put(Model.MergeMetaData.__ROWCOMENT.toString(), rowComment+"\n"+work2+"["+work2row+"]");
         }
         return retVal;
     }

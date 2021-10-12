@@ -235,8 +235,16 @@ public class Model {
         NEW_TABLE_NAME,
         dataCategory,
         isHidden,
-        description;
-
+        description,
+        isPrivate;
+        private final static Set<String> _MODEL = new HashSet<>();
+        static {
+            for (Enum c : values()) {
+                if (Character.isLowerCase(c.toString().codePointAt(0))) {
+                    _MODEL.add(c.toString());
+                }
+            }
+        }
         public boolean composite = false;
 
         RenameTable() {
@@ -246,6 +254,15 @@ public class Model {
         RenameTable(boolean composite) {
             this.composite = composite;
         }
+        
+        public static Set<String> getModelValues() {
+            return _MODEL;
+        }
+        
+        public static String[] getStringValues() {
+            return Arrays.stream(values()).map(Enum::name).toArray(String[]::new);
+        }
+        
     }
 
     public enum RenameColumn {
@@ -342,6 +359,41 @@ public class Model {
         }
     }
 
+    public enum Perspectives {
+        PERSPECTIVE_NAME(true),
+        TABLE_NAME(true),
+        ELEMENT_TYPE(true),
+        ELEMENT_NAME(true);
+        
+        public boolean composite = false;
+
+        Perspectives() {
+            this.composite = false;
+        }
+
+        Perspectives(boolean composite) {
+            this.composite = composite;
+        }
+    }
+    
+    public enum ElementType {
+        TABLES("tables"),
+        COLUMNS("columns"),
+        MEAUSURES("measures"),
+        HIERARCHIES("hierarchies");
+        
+        public String value = "";
+
+        ElementType(String value) {
+            this.value = value;
+        }
+        
+        @Override
+        public String toString(){
+            return this.value;
+        }
+    }
+        
     public enum LineageColumn {
         MODEL_NAME,
         TABLE_NAME,
@@ -410,7 +462,8 @@ public class Model {
         _RENAME_TABLES(Model.RenameTable.class),
         _RENAME_COLUMNS(Model.RenameColumn.class),
         _RELATIONSHIPS(Model.AllRelation.class),
-        _TABLE_SCHEMAS(Model.TableSchema.class);
+        _TABLE_SCHEMAS(Model.TableSchema.class),
+        _PERSPECTIVES(Model.Perspectives.class);
         
         public Class<? extends Enum> classz;
         
@@ -504,6 +557,12 @@ public class Model {
                 .map(x -> x.ordinal())
                 .collect(Collectors.toSet());
         retSet.put(ExcelSheets._RELATIONSHIPS.toString(), relationColumnOrdinals);
+        
+        Set<Integer> perspectiveColumnOrdinals = Arrays.stream(Perspectives.values())
+                .filter(x -> x.composite == true)
+                .map(x -> x.ordinal())
+                .collect(Collectors.toSet());
+        retSet.put(ExcelSheets._PERSPECTIVES.toString(), perspectiveColumnOrdinals);
         
         return retSet;
     }

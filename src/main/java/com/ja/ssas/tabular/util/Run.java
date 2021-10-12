@@ -19,15 +19,19 @@ public class Run {
      */
     public static void main(String[] args) {
         System.out.println(new File(".").getAbsoluteFile());
-        boolean ie = false;
-        
+        boolean ie = true;
+        String workingFolder = "D:\\Testing\\ssas-tabular-dev-util-1.2.2\\";
+        String templateFile = workingFolder+"SecuredModel_UAT_10apr_InMemory_R5.bim";
+        String output_dir = workingFolder + "output";
+        String excelConfig = workingFolder+"CFV_Summary_R1.5.xls";
         if (ie) {
-            String r = "-t \"D:\\Projects\\test\\ssas-tabular-dev-util-1.1.2\\splitmodels\" "
-                    + "-e \"D:\\Projects\\test\\ssas-tabular-dev-util-1.1.2\\ModelsExcel_Conf_vR1.12.31.xls\" "
-                    + "-o \"D:\\Projects\\test\\ssas-tabular-dev-util-1.1.2\\test1\" -darnhx";
+            String r = "-t " + templateFile
+                    + " -e " + excelConfig
+                    + " -o " + output_dir
+                    + " -darnh -s";
             ModelExcelImport.main(r.split(" "));
         }else {
-            String[] r = {"-i", "\"D:\\Projects\\test\\ssas-tabular-dev-util-1.1.2\\test1\"", "-e",  "Export_all", "-o", "\"D:\\Projects\\test\\ssas-tabular-dev-util-1.1.2\"", "-darnhx"};
+            String[] r = {"-i", "\"D:\\Projects\\test\\ssas-tabular-dev-util-1.2\\test1\"", "-e",  "Export_all", "-o", "\"D:\\Projects\\test\\ssas-tabular-dev-util-1.2\"", "-darnh"};
             ModelsExcelExport.main(r);
         }
 

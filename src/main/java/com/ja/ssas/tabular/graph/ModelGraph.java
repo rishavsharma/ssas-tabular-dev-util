@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.jgrapht.graph.DirectedMultigraph;
@@ -38,7 +37,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     private final JSONObject model;
     private final JSONArray tables;
     private JSONArray relationships;
-    private String name;
+    private String modelName;
     private final HashMap<String, JSONObject> allModelColumnMap;
 
     public ModelGraph(JSONObject database, String name) {
@@ -48,7 +47,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         tablePhysicalMap = new HashMap<>();
         edgeMap = new HashMap<>();
         this.database = database;
-        this.name = name;
+        this.modelName = name;
         this.tables = new JSONArray();
         this.relationships = new JSONArray();
         this.allModelColumnMap = new HashMap<>();
@@ -68,12 +67,12 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         this.model.put("relationships", this.relationships);
     }
 
-    public String getName() {
-        return this.name;
+    public String getModelName() {
+        return this.modelName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public void setRelationships(JSONArray relationships) {
@@ -86,19 +85,19 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     public JSONArray getRelationships() {
         return this.relationships;
     }
-    
-    public void setComments(String comments){
+
+    public void setComments(String comments) {
         ModelUtil.setComments(this.model, comments);
     }
-    
-    public String getComments(){
+
+    public String getComments() {
         return ModelUtil.getComments(this.model);
     }
 
     public JSONArray getTables() {
         return this.tables;
     }
-    
+
     public JSONObject getblankModel() {
         JSONObject blankModel = new JSONObject(database.toString());
         blankModel.getJSONObject("model").put("tables", new JSONArray());
@@ -133,7 +132,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
                 return null;
             }
         }
-        TableVertex createAlias = fromV.createAlias(aliasVertex, name);
+        TableVertex createAlias = fromV.createAlias(aliasVertex, modelName);
         addVertex(createAlias);
         this.aliasMap.put(createAlias.getLogicalName(), fromV.getDbName());
         return createAlias;
@@ -167,12 +166,12 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     }
 
     public void scriptWriter(String outFile, String prefix) throws FileNotFoundException {
-        String modelName = prefix + this.getName().replace("&", "and");
-        database.put("name", modelName);
+        String modelNameL = prefix + this.getModelName().replace("&", "and");
+        database.put("name", modelNameL);
         if (database.has("id")) {
             database.remove("id");
         }
-        String tmsl = "{\"createOrReplace\": { \"object\": {\"database\": \"" + modelName + "\"},\"database\":" + database.toString(2) + " }}";
+        String tmsl = "{\"createOrReplace\": { \"object\": {\"database\": \"" + modelNameL + "\"},\"database\":" + database.toString(2) + " }}";
         try (PrintWriter out = new PrintWriter(outFile)) {
             out.println(tmsl);
         }
@@ -181,8 +180,14 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     @Override
     public boolean addVertex(TableVertex vertex) {
         TableVertex lkpVertex = tableMap.get(vertex.getLogicalName());
-        logger.log(Level.FINE, "Adding  table {0} in model {1}", new Object[]{vertex.getLogicalName(), name});
-        if (lkpVertex == null) {
+        logger.log(Level.FINE, "Adding  table {0} in model {1}", new Object[]{vertex.getLogicalName(), modelName});
+        if (null == lkpVertex || R.OVERWRITE_TABLES) {            
+            if(null != lkpVertex){
+                logger.log(Level.WARNING, "Its a existing table, overwriting...:{0}", vertex.getLogicalName());
+                removeVertex(vertex);                
+            }else{
+                logger.log(Level.FINE, "Its a new table, creating new...");
+            }
             logger.log(Level.FINE, "Its a new table, creating new...");
             String logicalName = vertex.getLogicalName();
             String dbName = vertex.getDbName();
@@ -191,7 +196,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
             }
             tableMap.put(logicalName, vertex);
             tables.put(vertex.getTable());
-            vertex.setModelName(name);
+            vertex.setModelName(modelName);
             vertex.getAllTableColumnMap().forEach((name, column) -> {
                 String key = logicalName + "[" + name + "]";
                 allModelColumnMap.put(key.toLowerCase(), column);
@@ -206,6 +211,23 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         }
         return false;
 
+    }
+
+    @Override
+    public boolean removeVertex(TableVertex vertex) {
+        logger.log(Level.FINE, "Removing Table:"+vertex.getLogicalName());
+        String logicalName = vertex.getLogicalName();
+        String dbName = vertex.getDbName();
+        if (tablePhysicalMap.containsKey(dbName)) {
+            tablePhysicalMap.remove(dbName);
+        }
+        if (tableMap.containsKey(logicalName)) {
+            tableMap.remove(logicalName);
+        }
+        
+        allModelColumnMap.entrySet().removeIf(entry -> entry.getKey().replace("'", "").startsWith(logicalName.toLowerCase()));
+        
+        return super.removeVertex(vertex);
     }
 
     public void addAllColumnKeys(JSONArray derivedArray) {
@@ -244,11 +266,11 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         StringBuilder errorInfo = new StringBuilder();
         boolean logError = false;
         if (sourceVertex == null) {
-            errorInfo.append(String.format("Model %1$s : From table %2$s is not found in relationship %3$s", name, e.getFromTable(), e.toString())).append("\n");
+            errorInfo.append(String.format("Model %1$s : From table %2$s is not found in relationship %3$s", modelName, e.getFromTable(), e.toString())).append("\n");
             logError = true;
         }
         if (targetVertex == null) {
-            errorInfo.append(String.format("Model %1$s : To table %2$s is not found in relationship %3$s", name, e.getToTable(), e.toString())).append("\n");
+            errorInfo.append(String.format("Model %1$s : To table %2$s is not found in relationship %3$s", modelName, e.getToTable(), e.toString())).append("\n");
             logError = true;
         }
         if (logError) {
@@ -257,12 +279,12 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
             return false;
         }
         if (!sourceVertex.getAllTableColumnMap().containsKey(e.getFrom().toLowerCase())) {
-            errorInfo.append(String.format("Model %1$s : From table column %2$s is not found in relationship %3$s", name, e.getFrom(), e.toString())).append("\n");
+            errorInfo.append(String.format("Model %1$s : From table column %2$s is not found in relationship %3$s", modelName, e.getFrom(), e.toString())).append("\n");
             logError = true;
         }
 
         if (!targetVertex.getAllTableColumnMap().containsKey(e.getTo().toLowerCase())) {
-            errorInfo.append(String.format("Model %1$s : To table column %2$s is not found in relationship %3$s", name, e.getTo(), e.toString())).append("\n");
+            errorInfo.append(String.format("Model %1$s : To table column %2$s is not found in relationship %3$s", modelName, e.getTo(), e.toString())).append("\n");
             logError = true;
         }
 
@@ -273,7 +295,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         }
 
         if (edgeMap.containsKey(e.toString())) {
-            errorInfo.append(String.format("Already have relation in model %1$s : %2$s", name, e.toString())).append("\n");
+            errorInfo.append(String.format("Already have relation in model %1$s : %2$s", modelName, e.toString())).append("\n");
             logger.log(Level.SEVERE, errorInfo.toString());
             ModelUtil.putErrorInfo(e.getExcelRelation(), errorInfo.toString(), Model.ExcelMetaData.__ERROR.toString());
             return false;
@@ -282,15 +304,15 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         this.getAllEdges(sourceVertex, targetVertex).forEach((edge) -> {
             if (edge.isActive()) {
                 ModelUtil.putErrorInfo(e.getExcelRelation(), "Already have active relationship in model setting to inactive: " + e.toString(), Model.ExcelMetaData.__WARNING.toString());
-                logger.log(Level.FINE, "Already have active relationship in model {0} : {1}", new Object[]{name, edge.toString()});
+                logger.log(Level.FINE, "Already have active relationship in model {0} : {1}", new Object[]{modelName, edge.toString()});
                 e.setActive(false);
-                logger.log(Level.FINE, "Setting to inactive active relationship in model {0} : {1}", new Object[]{name, e.toString()});
+                logger.log(Level.FINE, "Setting to inactive active relationship in model {0} : {1}", new Object[]{modelName, e.toString()});
             }
         });
         super.addEdge(sourceVertex, targetVertex, e);
         edgeMap.put(e.toString(), e);
         this.relationships.put(e.getRelation());
-        logger.log(Level.FINE, "Relationship added in model {0} : {1}", new Object[]{name, e.toString()});
+        logger.log(Level.FINE, "Relationship added in model {0} : {1}", new Object[]{modelName, e.toString()});
         ModelUtil.putErrorInfo(e.getExcelRelation(), String.format("Relationship added : %1$s", e.toString()), Model.ExcelMetaData.__INFO.toString());
         return true;
     }
@@ -314,7 +336,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         }
     }
 
-    public boolean addModelEdge(JSONObject relation) {        
+    public boolean addModelEdge(JSONObject relation) {
         TableVertex fromTable = tableMap.get(relation.getString(Model.Relation.fromTable.toString()));
         TableVertex toTable = tableMap.get(relation.getString(Model.Relation.toTable.toString()));
         CustomEdge cedg = new CustomEdge(relation);
@@ -330,9 +352,9 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     }
 
     public void renameModel(HashMap<String, String> tablecolExp, boolean doRename) {
-        logger.log(Level.FINE, "Starting renaming for for model {0}", name);
-        new TabularRename(database, this.name, doRename).rename(tablecolExp);
-        logger.log(Level.FINE, "Finished renaming for for model {0}", name);
+        logger.log(Level.FINE, "Starting renaming for for model {0}", modelName);
+        new TabularRename(database, this.modelName, doRename).rename(tablecolExp);
+        logger.log(Level.FINE, "Finished renaming for for model {0}", modelName);
     }
 
     public void RenameSchemax(HashMap<String, String> tablecolExp) {
@@ -352,7 +374,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
 
     public JSONArray getExcelRelationshipsArray() {
         JSONArray retArray = new JSONArray();
-        logger.log(Level.FINE, "Getting relationships for model {0}", name);
+        logger.log(Level.FINE, "Getting relationships for model {0}", modelName);
         for (int i = 0; i < relationships.length(); i++) {
             JSONObject rel = relationships.getJSONObject(i);
             JSONObject retVal = new JSONObject(rel, Model.Relation.getStringValues());
@@ -371,17 +393,17 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     }
 
     public void setExcelRelationships(JSONArray excelRel) {
-        logger.log(Level.FINE, "Setting relationships for model {0}", name);
+        logger.log(Level.FINE, "Setting relationships for model {0}", modelName);
         for (int i = 0; i < excelRel.length(); i++) {
             JSONObject excelRow = excelRel.getJSONObject(i);
             addExcelEdge(excelRow);
         }
 
-        logger.log(Level.FINE, "Finished Setting relationships for model {0}", name);
+        logger.log(Level.FINE, "Finished Setting relationships for model {0}", modelName);
     }
 
     public JSONArray getExcelHierarchiesArray() {
-        logger.log(Level.FINE, "Getting hierarchies for model {0}", name);
+        logger.log(Level.FINE, "Getting hierarchies for model {0}", modelName);
         JSONArray retArray = new JSONArray();
         tableMap.values().forEach((table) -> {
             JSONArray hierarchies = table.getExcelHierarchies();
@@ -393,14 +415,14 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
     }
 
     public void setExcelHierarchies(HashMap<String, HashMap<String, JSONArray>> excelTableMap) {
-        logger.log(Level.FINE, "Setting hierarchies for model {0}", name);
+        logger.log(Level.FINE, "Setting hierarchies for model {0}", modelName);
         excelTableMap.forEach((tableName, hierMap) -> {
             hierMap.forEach((hierName, levelsArray) -> {
                 TableVertex vertex = tableMap.get(tableName);
                 if (vertex != null) {
                     vertex.setExcelHierarchies(hierName, levelsArray);
                 } else {
-                    String errorMsg = String.format("Table %1$s not found for model %2$s", tableName, name);
+                    String errorMsg = String.format("Table %1$s not found for model %2$s", tableName, modelName);
                     logger.log(Level.SEVERE, errorMsg);
                     ModelUtil.putErrorInfo(levelsArray, errorMsg, Model.ExcelMetaData.__ERROR.toString());
                 }
@@ -408,7 +430,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
             });
 
         });
-        logger.log(Level.FINE, "Finished Setting hierarchies for model {0}", name);
+        logger.log(Level.FINE, "Finished Setting hierarchies for model {0}", modelName);
     }
 
     public void setExcelDerivedColumn(String tableName, JSONObject derived) {
@@ -447,7 +469,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
             vertex.setExcelDerivedColumn(derived, exp);
 
         } else {
-            logger.log(Level.SEVERE, "Table {0} not found in model {1}", new Object[]{tableName, getName()});
+            logger.log(Level.SEVERE, "Table {0} not found in model {1}", new Object[]{tableName, getModelName()});
             ModelUtil.putErrorInfo(derived, "Table not found " + tableName, Model.ExcelMetaData.__ERROR.toString());
         }
     }
@@ -456,9 +478,10 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
         JSONArray retArray = new JSONArray();
         tableMap.forEach((logicalName, vertex) -> {
             vertex.getDerivedColumnMap().forEach((key, derivedC) -> {
-                String exp = derivedC.getColumn().getString(Model.DerivedColumn.expression.toString());
+                //String exp = derivedC.getColumn().getString(Model.DerivedColumn.expression.toString());
+                String exp = derivedC.getExpression();
                 JSONObject retColumn = new JSONObject();
-                retColumn.put(Model.LineageColumn.MODEL_NAME.toString(), this.getName());
+                retColumn.put(Model.LineageColumn.MODEL_NAME.toString(), this.getModelName());
                 retColumn.put(Model.LineageColumn.TABLE_NAME.toString(), logicalName);
                 retColumn.put(Model.LineageColumn.COLUMN_TYPE.toString(), derivedC.getType());
                 retColumn.put(Model.LineageColumn.TERM_NAME.toString(), derivedC.getName());
@@ -513,7 +536,7 @@ public final class ModelGraph extends DirectedMultigraph<TableVertex, CustomEdge
                                 expCol.put(Model.LineageColumn.SSAS_TABLE.toString(), measure.getTableName());
                                 expCol.put(Model.LineageColumn.SSAS_COLUMN.toString(), term);
                             } else {
-                                logger.log(Level.SEVERE, "Measure [{0}] not found in model [{1}]", new Object[]{term, getName()});
+                                logger.log(Level.SEVERE, "Measure [{0}] not found in model [{1}]", new Object[]{term, getModelName()});
                             }
                         }
                         retArray.put(expCol);

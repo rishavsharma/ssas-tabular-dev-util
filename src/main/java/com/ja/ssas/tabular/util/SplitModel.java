@@ -83,14 +83,14 @@ public class SplitModel {
                     get.addVertex(v.clone());
                 } else if (modelName != null) {
                     ModelGraph n = modelGraphTemplate.getblankGraph();
-                    n.setName(modelName);
+                    n.setModelName(modelName);
                     n.addVertex(v.clone());
                     graphs.put(modelName, n);
                 }
             }
             
             for (ModelGraph graph : graphs.values()) {
-                graph.writer(outFileDir.getAbsolutePath()+File.separatorChar+graph.getName()+".bim");
+                graph.writer(outFileDir.getAbsolutePath()+File.separatorChar+graph.getModelName()+".bim");
             }
 
         } catch (ParseException e) {

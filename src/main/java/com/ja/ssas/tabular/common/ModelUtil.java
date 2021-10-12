@@ -193,10 +193,13 @@ public class ModelUtil {
 //            String[] s = col.split("[\\[\\]]");
 //            System.out.println(s[0]+","+s[1]);
 //        });
-
-        ModelUtil.getLocalColumnsFromExp(e).forEach((col) -> {
-            String[] s = col.split("[\\[\\]]");
-            System.out.println(s[0] + "," + s[1]);
-        });
+//\'[^\'\\[]+\'(?=[^\\[])
+        Pattern p = Pattern.compile("'[^\\[]+'\\[[^\\[]+\\]");
+        Matcher m = p.matcher(e);
+        while (m.find()) {
+            String b = m.group();
+            System.out.println(b);
+        }
+        
     }
 }

@@ -63,17 +63,18 @@ public class ModelExcelImport {
         options.addOption("a", "alias", false, "create aliases based on excel config");
         options.addOption("h", "hierarchy", false, "export hierarchy Columns to excel");
         options.addOption("d", "derived", false, "create derived column (calculated or measures) based on excel config");
+        options.addOption("p", "perspectives", false, "create perspectives");
         options.addOption("g", "generate", false, "generate combined model as per _MODELS excel sheet");
         options.addOption("o", "output", true, "folder where output would be writen");
         options.addOption("s", "status", false, "Export the excel with failure status highlighted in each sheet");
         //options.addOption("m", "multiple", false, "generate model relationships status in multiple sheets");
         options.addOption("x", "scripts", false, "output TMSL script files to out folder/scripts");
         //options.addOption("f", "schema", false, "change schema for tables");
-        //options.addOption("l", "lineage", false, "Generate lineage");
+        options.addOption("w", "overwrite", false, "Overwrite tables when multiple input template or otherwise");
         options.addOption("z", "test", false, "do not generate bim output files");
-
-        options.addOption("p", "threads", true, "Number of threads spawn 1 is default any valye from 2 to number of cores in the system");
-        options.addOption("x", "comments", false, "Write Comments");
+        options.addOption("c", "combine", false, "output combined bim file if multiple input tamplete used");
+        //options.addOption("t", "threads", true, "Number of threads spawn 1 is default any valye from 2 to number of cores in the system");
+        options.addOption("y", "comments", false, "Write Comments");
         options.addOption("m", "master", true, "master bim file for connection role etc when there are multiple files as template");
         //options.addOption("e", "env", true, "change table schema");
         CommandLineParser parser = new DefaultParser();
@@ -85,6 +86,10 @@ public class ModelExcelImport {
             cmd = parser.parse(options, args);
             if (cmd.hasOption("comments")) {
                 R.COMMENTS = true;
+            }
+
+            if (cmd.hasOption("overwrite")) {
+                R.OVERWRITE_TABLES = true;
             }
             if (cmd.hasOption("threads")) {
                 R.NO_OF_THREADS = Integer.parseInt(cmd.getOptionValue("threads"));
@@ -153,7 +158,10 @@ public class ModelExcelImport {
                 } else {
                     modelGraphTemplate = new ModelGraph(ModelUtil.readModel(templateFile), "Template");
                 }
-
+                
+                if (cmd.hasOption("combine")) {
+                    modelGraphTemplate.writer(outputFolder + File.separator +modelGraphTemplate.getModelName()+".bim");
+                }
                 modelWrapper.setBaseModel(modelGraphTemplate);
                 ModelGraph blankGraph = modelGraphTemplate.getblankGraph();
 
@@ -166,7 +174,7 @@ public class ModelExcelImport {
                     ModelGraph newModel = modelWrapper.getModel(modelName);
                     if (newModel == null) {
                         newModel = blankGraph.getblankGraph();
-                        newModel.setName(modelName);
+                        newModel.setModelName(modelName);
                         if (R.COMMENTS) {
                             String comments = excelModel.optString(Model.Comments._COMMENTS.toString(), "");
                             newModel.setComments(comments);
@@ -346,6 +354,9 @@ public class ModelExcelImport {
                 }
 
             }
+            if (cmd.hasOption("perspective")) {
+
+            }
             if (cmd.hasOption("rename")) {
                 logger.log(Level.FINE, "Starting renaming...");
                 doRename = true;
@@ -372,7 +383,7 @@ public class ModelExcelImport {
                     modelWrapper.getAllModels().forEach((model) -> {
                         model.vertexSet().forEach((table) -> {
                             JSONObject retColumn = new JSONObject();
-                            retColumn.put(Model.TableSchema.MODEL_NAME.toString(), model.getName());
+                            retColumn.put(Model.TableSchema.MODEL_NAME.toString(), model.getModelName());
                             retColumn.put(Model.TableSchema.PHYSICAL_TABLE.toString(), table.getDbName());
                             retColumn.put(Model.TableSchema.TABLE_NAME.toString(), table.getLogicalName());
                             retColumn.put(Model.TableSchema.SCHEMA_NAME.toString(), table.getSchemaName());
@@ -394,6 +405,7 @@ public class ModelExcelImport {
         } catch (Exception e) {
             logger.log(Level.SEVERE, e.getMessage(), e);
             formatter.printHelp("ModelsExcelImport", options);
+            e.printStackTrace();
             System.exit(1);
         } finally {
             if (!ThreadExecuter.getInstance().isShutdown()) {

@@ -38,6 +38,7 @@ public class ExcelReadHelper {
     private JSONArray _HIERARCHIES = new JSONArray();
     private JSONArray _RELATIONSHIPS = new JSONArray();
     private JSONArray _TABLE_SCHEMAS = new JSONArray();
+    private JSONArray _PERSPECTIVES = new JSONArray();
     private final HashMap<String, JSONArray> relationMap = new HashMap<>();
     private final HashMap<String, JSONArray> sheetMap = new HashMap<>();
     private final HashMap<String, JSONArray> derivedMap = new HashMap<>();
@@ -113,6 +114,10 @@ public class ExcelReadHelper {
         _RENAME_COLUMNS = excelRead.getSheetData(Model.ExcelSheets._RENAME_COLUMNS.toString(), Model.RenameColumn.class);
         sheetMap.put(Model.ExcelSheets._RENAME_COLUMNS.toString(), _RENAME_COLUMNS);
         //}
+        
+        if (cmd.hasOption("perspectives")) {
+            _PERSPECTIVES = excelRead.getSheetData(Model.ExcelSheets._PERSPECTIVES.toString(), Model.Perspectives.class);
+        }
 
         if (cmd.hasOption("schema")) {
             _TABLE_SCHEMAS = excelRead.getSheetData(Model.ExcelSheets._TABLE_SCHEMAS.toString(), Model.RenameColumn.class);

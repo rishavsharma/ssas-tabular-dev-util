@@ -27,7 +27,8 @@ public class EnumDataTypes {
         isDataTypeInferred(EnumDataTypes.BOOLEAN),
         expression(EnumDataTypes.EXPRESSION),
         isKey(EnumDataTypes.BOOLEAN),
-        isNullable(EnumDataTypes.BOOLEAN);
+        isNullable(EnumDataTypes.BOOLEAN),
+        isPrivate(EnumDataTypes.BOOLEAN);
         private final String dataType;
         private final static Map<String, DataType> CONSTANTS = new HashMap<>();
 
